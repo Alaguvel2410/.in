@@ -2,6 +2,8 @@
 <html lang="en">
 <!-- new code -->
 <head>
+
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description"
@@ -635,6 +637,306 @@
             background: rgba(14, 165, 233, .08)
         }
 
+        /* ══════════════════════════════════════════
+   HERO GRAPHIC — UPGRADED
+   Bigger circle, smoother orbits, premium motion
+══════════════════════════════════════════ */
+
+        /* ── Main graphic container — LARGER ── */
+        .hero-graphic {
+            width: 460px;
+            height: 460px;
+            position: relative;
+            perspective: 1200px;
+        }
+
+        /* ── Outer orbit ring — bigger radius, smoother spin ── */
+        .hero-circle-outer {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px dashed rgba(14, 165, 233, 0.18);
+            animation: orbitRotateSlow 26s linear infinite;
+            box-shadow:
+                inset 0 0 40px rgba(14, 165, 233, 0.04),
+                0 0 60px rgba(14, 165, 233, 0.03);
+        }
+
+        /* ── Inner orbit ring ── */
+        .hero-circle-inner {
+            position: absolute;
+            inset: 50px;
+            border-radius: 50%;
+            border: 1px dashed rgba(99, 102, 241, 0.15);
+            animation: orbitRotateSlow 18s linear infinite reverse;
+            box-shadow: inset 0 0 30px rgba(99, 102, 241, 0.05);
+        }
+
+        /* ── Core sphere — bigger, premium glow ── */
+        .hero-circle-core {
+            position: absolute;
+            inset: 120px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.22) 0%, rgba(99, 102, 241, 0.12) 45%, transparent 75%),
+                radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.18) 0%, transparent 60%);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow:
+                inset 0 0 40px rgba(14, 165, 233, 0.18),
+                inset 0 0 80px rgba(99, 102, 241, 0.08),
+                0 10px 60px rgba(14, 165, 233, 0.15);
+            animation: coreBreathe 5s ease-in-out infinite;
+        }
+
+        .hero-circle-core::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg,
+                    rgba(14, 165, 233, 0.12) 0%,
+                    transparent 40%,
+                    rgba(139, 92, 246, 0.1) 100%);
+            animation: coreShimmer 8s linear infinite;
+        }
+
+        /* ── Core icon ── */
+        .hero-core-icon {
+            font-size: 4.2rem;
+            filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.7));
+            position: relative;
+            z-index: 2;
+            animation: coreIconFloat 4s ease-in-out infinite;
+        }
+
+        /* ── Floating tech logos — premium glass ── */
+        .floating-tech {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.5),
+                inset 0 0 12px rgba(14, 165, 233, 0.05),
+                0 0 20px rgba(14, 165, 233, 0.08);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+            z-index: 3;
+        }
+
+        .floating-tech img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .floating-tech:hover {
+            border-color: rgba(14, 165, 233, 0.5);
+            box-shadow:
+                0 12px 30px rgba(14, 165, 233, 0.3),
+                inset 0 0 16px rgba(14, 165, 233, 0.12);
+            z-index: 10;
+        }
+
+        .floating-tech:hover img {
+            transform: scale(1.15);
+        }
+
+        /* ── Position floating tech around circle (bigger orbit) ── */
+        .ft-1 {
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: floatUpDown 4s ease-in-out infinite;
+        }
+
+        .ft-2 {
+            top: 22%;
+            right: -25px;
+            animation: floatUpDown 4.5s ease-in-out infinite 0.4s;
+        }
+
+        .ft-3 {
+            bottom: 22%;
+            right: -25px;
+            animation: floatUpDown 5s ease-in-out infinite 0.9s;
+        }
+
+        .ft-4 {
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: floatUpDown 4.2s ease-in-out infinite 1.3s;
+        }
+
+        .ft-5 {
+            bottom: 22%;
+            left: -25px;
+            animation: floatUpDown 4.8s ease-in-out infinite 0.7s;
+        }
+
+        .ft-6 {
+            top: 22%;
+            left: -25px;
+            animation: floatUpDown 5.2s ease-in-out infinite 0.2s;
+        }
+
+        /* ══ ANIMATIONS ══ */
+
+        @keyframes orbitRotateSlow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes coreBreathe {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow:
+                    inset 0 0 40px rgba(14, 165, 233, 0.18),
+                    inset 0 0 80px rgba(99, 102, 241, 0.08),
+                    0 10px 60px rgba(14, 165, 233, 0.15);
+            }
+
+            50% {
+                transform: scale(1.04);
+                box-shadow:
+                    inset 0 0 60px rgba(14, 165, 233, 0.28),
+                    inset 0 0 100px rgba(99, 102, 241, 0.15),
+                    0 14px 80px rgba(14, 165, 233, 0.28);
+            }
+        }
+
+        @keyframes coreShimmer {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes coreIconFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+                filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.7));
+            }
+
+            50% {
+                transform: translateY(-6px) scale(1.04);
+                filter: drop-shadow(0 0 35px rgba(99, 102, 241, 0.9));
+            }
+        }
+
+        @keyframes floatUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* ft-1 and ft-4 are centered (need translateX preserved) */
+        @keyframes floatUpDownCenter {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-12px);
+            }
+        }
+
+        .ft-1 {
+            animation: floatUpDownCenter 4s ease-in-out infinite;
+        }
+
+        .ft-4 {
+            animation: floatUpDownCenter 4.2s ease-in-out infinite 1.3s;
+        }
+
+        /* ══ RESPONSIVE ══ */
+
+        @media (max-width: 1180px) {
+            .hero-graphic {
+                width: 420px;
+                height: 420px;
+            }
+
+            .hero-circle-core {
+                inset: 110px;
+            }
+
+            .hero-core-icon {
+                font-size: 3.8rem;
+            }
+
+            .floating-tech {
+                width: 56px;
+                height: 56px;
+            }
+
+            .floating-tech img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-graphic {
+                width: 380px;
+                height: 380px;
+            }
+
+            .hero-circle-core {
+                inset: 100px;
+            }
+
+            .hero-core-icon {
+                font-size: 3.4rem;
+            }
+
+            .floating-tech {
+                width: 52px;
+                height: 52px;
+            }
+
+            .floating-tech img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        /* The hero-visual is hidden below 1024px (already in your code) */
+
         .hero {
             min-height: 100vh;
             display: flex;
@@ -681,12 +983,514 @@
             0%,
             100% {
                 transform: scale(1) translate(0, 0);
-                opacity: 1
+                opacity: 0.9;
+            }
+
+            33% {
+                transform: scale(1.08) translate(15px, -25px);
+                opacity: 0.75;
+            }
+
+            66% {
+                transform: scale(1.05) translate(-10px, 15px);
+                opacity: 0.85;
+            }
+        }
+
+        /* ══════════════════════════════════════════
+   HERO ANIMATION — EXTRA MOVEMENT BOOST
+   More dynamic motion, multi-axis movement,
+   floating particles, magnetic interactions
+══════════════════════════════════════════ */
+
+        /* ── Make the entire graphic gently float ── */
+        .hero-graphic {
+            animation: graphicFloat 7s ease-in-out infinite;
+        }
+
+        @keyframes graphicFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-8px) rotate(0.5deg);
             }
 
             50% {
-                transform: scale(1.1) translate(20px, -20px);
-                opacity: .7
+                transform: translateY(-15px) rotate(0deg);
+            }
+
+            75% {
+                transform: translateY(-8px) rotate(-0.5deg);
+            }
+        }
+
+        /* ── Outer ring now wobbles + spins ── */
+        .hero-circle-outer {
+            animation:
+                orbitRotateSlow 26s linear infinite,
+                ringWobble 6s ease-in-out infinite !important;
+        }
+
+        @keyframes ringWobble {
+
+            0%,
+            100% {
+                transform: scale(1);
+                border-color: rgba(14, 165, 233, 0.18);
+            }
+
+            50% {
+                transform: scale(1.04);
+                border-color: rgba(14, 165, 233, 0.35);
+            }
+        }
+
+        /* ── Inner ring wobbles in opposite phase ── */
+        .hero-circle-inner {
+            animation:
+                orbitRotateSlow 18s linear infinite reverse,
+                ringWobbleReverse 5s ease-in-out infinite !important;
+        }
+
+        @keyframes ringWobbleReverse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                border-color: rgba(99, 102, 241, 0.15);
+            }
+
+            50% {
+                transform: scale(0.96);
+                border-color: rgba(99, 102, 241, 0.32);
+            }
+        }
+
+        /* ── Core sphere bounces + breathes ── */
+        .hero-circle-core {
+            animation:
+                coreBreathe 5s ease-in-out infinite,
+                coreSway 8s ease-in-out infinite !important;
+        }
+
+        @keyframes coreSway {
+
+            0%,
+            100% {
+                margin-left: 0;
+                margin-top: 0;
+            }
+
+            25% {
+                margin-left: 6px;
+                margin-top: -4px;
+            }
+
+            50% {
+                margin-left: 0;
+                margin-top: -8px;
+            }
+
+            75% {
+                margin-left: -6px;
+                margin-top: -4px;
+            }
+        }
+
+        /* ── Core icon swings + bounces + rotates slightly ── */
+        .hero-core-icon {
+            animation: coreIconDance 4s ease-in-out infinite !important;
+            display: inline-block;
+        }
+
+        @keyframes coreIconDance {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 25px rgba(14, 165, 233, 0.7));
+            }
+
+            20% {
+                transform: translateY(-8px) scale(1.06) rotate(-5deg);
+                filter: drop-shadow(0 6px 30px rgba(99, 102, 241, 0.85));
+            }
+
+            40% {
+                transform: translateY(-10px) scale(1.08) rotate(3deg);
+                filter: drop-shadow(0 8px 40px rgba(139, 92, 246, 1));
+            }
+
+            60% {
+                transform: translateY(-6px) scale(1.05) rotate(-3deg);
+                filter: drop-shadow(0 5px 28px rgba(14, 165, 233, 0.85));
+            }
+
+            80% {
+                transform: translateY(-12px) scale(1.1) rotate(5deg);
+                filter: drop-shadow(0 10px 45px rgba(99, 102, 241, 1));
+            }
+        }
+
+        /* ══════════════════════════════════════════
+   FLOATING TECH LOGOS — MULTI-AXIS MOTION
+   Each logo now: floats + rotates + sways
+══════════════════════════════════════════ */
+
+        /* ── Top logo ── */
+        .ft-1 {
+            animation: floatComplex1 5s ease-in-out infinite !important;
+        }
+
+        @keyframes floatComplex1 {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0) rotate(0deg) scale(1);
+            }
+
+            25% {
+                transform: translateX(-45%) translateY(-15px) rotate(-8deg) scale(1.05);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-22px) rotate(0deg) scale(1.08);
+            }
+
+            75% {
+                transform: translateX(-55%) translateY(-15px) rotate(8deg) scale(1.05);
+            }
+        }
+
+        /* ── Top-right logo ── */
+        .ft-2 {
+            animation: floatComplex2 5.5s ease-in-out infinite !important;
+        }
+
+        @keyframes floatComplex2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            33% {
+                transform: translate(8px, -12px) rotate(10deg) scale(1.06);
+            }
+
+            66% {
+                transform: translate(-5px, -18px) rotate(-7deg) scale(1.04);
+            }
+        }
+
+        /* ── Bottom-right logo ── */
+        .ft-3 {
+            animation: floatComplex3 6s ease-in-out infinite !important;
+        }
+
+        @keyframes floatComplex3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            25% {
+                transform: translate(10px, 10px) rotate(-12deg) scale(1.05);
+            }
+
+            50% {
+                transform: translate(5px, 15px) rotate(5deg) scale(1.08);
+            }
+
+            75% {
+                transform: translate(-8px, 8px) rotate(12deg) scale(1.04);
+            }
+        }
+
+        /* ── Bottom logo ── */
+        .ft-4 {
+            animation: floatComplex4 5.3s ease-in-out infinite !important;
+        }
+
+        @keyframes floatComplex4 {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0) rotate(0deg) scale(1);
+            }
+
+            30% {
+                transform: translateX(-55%) translateY(12px) rotate(7deg) scale(1.05);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(18px) rotate(-5deg) scale(1.07);
+            }
+
+            80% {
+                transform: translateX(-45%) translateY(10px) rotate(8deg) scale(1.04);
+            }
+        }
+
+        /* ── Bottom-left logo ── */
+        .ft-5 {
+            animation: floatComplex5 5.8s ease-in-out infinite !important;
+        }
+
+        @keyframes floatComplex5 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            33% {
+                transform: translate(-10px, 12px) rotate(8deg) scale(1.06);
+            }
+
+            66% {
+                transform: translate(-5px, 18px) rotate(-9deg) scale(1.04);
+            }
+        }
+
+        /* ── Top-left logo ── */
+        .ft-6 {
+            animation: floatComplex6 5.6s ease-in-out infinite !important;
+        }
+
+        @keyframes floatComplex6 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            25% {
+                transform: translate(-12px, -10px) rotate(10deg) scale(1.05);
+            }
+
+            50% {
+                transform: translate(-8px, -15px) rotate(-6deg) scale(1.08);
+            }
+
+            75% {
+                transform: translate(-5px, -8px) rotate(7deg) scale(1.03);
+            }
+        }
+
+        /* ══════════════════════════════════════════
+   ADDITIONAL ORBITING PARTICLES
+   Small glowing dots circling the core
+══════════════════════════════════════════ */
+
+        .hero-graphic::before,
+        .hero-graphic::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gradient-main);
+            box-shadow: 0 0 12px rgba(14, 165, 233, 0.8);
+            top: 50%;
+            left: 50%;
+            z-index: 1;
+        }
+
+        .hero-graphic::before {
+            animation: orbitParticle1 12s linear infinite;
+        }
+
+        .hero-graphic::after {
+            animation: orbitParticle2 16s linear infinite reverse;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.8);
+        }
+
+        @keyframes orbitParticle1 {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) translateX(195px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) translateX(195px) rotate(-360deg);
+            }
+        }
+
+        @keyframes orbitParticle2 {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) translateX(165px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) translateX(165px) rotate(-360deg);
+            }
+        }
+
+        /* ══════════════════════════════════════════
+   BACKGROUND GLOWS — MORE MOTION
+══════════════════════════════════════════ */
+
+        .hero-glow-1 {
+            animation: glowDance1 9s ease-in-out infinite !important;
+        }
+
+        .hero-glow-2 {
+            animation: glowDance2 11s ease-in-out infinite !important;
+        }
+
+        @keyframes glowDance1 {
+
+            0%,
+            100% {
+                transform: scale(1) translate(0, 0);
+                opacity: 0.85;
+            }
+
+            25% {
+                transform: scale(1.12) translate(40px, -30px);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(0.9) translate(-30px, 40px);
+                opacity: 0.95;
+            }
+
+            75% {
+                transform: scale(1.08) translate(20px, 25px);
+                opacity: 0.75;
+            }
+        }
+
+        @keyframes glowDance2 {
+
+            0%,
+            100% {
+                transform: scale(1) translate(0, 0);
+                opacity: 0.8;
+            }
+
+            33% {
+                transform: scale(1.15) translate(-40px, 30px);
+                opacity: 0.6;
+            }
+
+            66% {
+                transform: scale(0.92) translate(30px, -35px);
+                opacity: 0.9;
+            }
+        }
+
+        /* ══════════════════════════════════════════
+   GRID BACKGROUND — SUBTLE PARALLAX MOTION
+══════════════════════════════════════════ */
+
+        .hero-bg-grid {
+            animation: gridDrift 30s linear infinite;
+        }
+
+        @keyframes gridDrift {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 60px 60px;
+            }
+        }
+
+        /* ══════════════════════════════════════════
+   PAUSE ON HOVER (premium polish)
+══════════════════════════════════════════ */
+
+        .hero-graphic:hover .floating-tech {
+            animation-play-state: paused;
+        }
+
+        .hero-graphic:hover .floating-tech:hover {
+            transform: scale(1.2) rotate(0deg) !important;
+            z-index: 20;
+            box-shadow:
+                0 16px 40px rgba(14, 165, 233, 0.45),
+                inset 0 0 20px rgba(14, 165, 233, 0.18);
+            border-color: rgba(14, 165, 233, 0.7);
+        }
+
+        /* ══════════════════════════════════════════
+   ACCESSIBILITY — Respect reduced motion
+══════════════════════════════════════════ */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .hero-graphic,
+            .hero-circle-outer,
+            .hero-circle-inner,
+            .hero-circle-core,
+            .hero-core-icon,
+            .floating-tech,
+            .hero-glow-1,
+            .hero-glow-2,
+            .hero-bg-grid {
+                animation: none !important;
+            }
+
+            .hero-graphic::before,
+            .hero-graphic::after {
+                display: none;
+            }
+        }
+
+        /* ══════════════════════════════════════════
+   RESPONSIVE — Reduce orbit radius on tablets
+══════════════════════════════════════════ */
+
+        @media (max-width: 1180px) {
+            @keyframes orbitParticle1 {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg) translateX(175px) rotate(0deg);
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) rotate(360deg) translateX(175px) rotate(-360deg);
+                }
+            }
+
+            @keyframes orbitParticle2 {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg) translateX(150px) rotate(0deg);
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) rotate(360deg) translateX(150px) rotate(-360deg);
+                }
+            }
+        }
+
+        @media (max-width: 1024px) {
+            @keyframes orbitParticle1 {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg) translateX(155px) rotate(0deg);
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) rotate(360deg) translateX(155px) rotate(-360deg);
+                }
+            }
+
+            @keyframes orbitParticle2 {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg) translateX(130px) rotate(0deg);
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) rotate(360deg) translateX(130px) rotate(-360deg);
+                }
             }
         }
 
@@ -5312,203 +6116,213 @@
    Premium dark theme — matches hero buttons
 ══════════════════════════════════════════ */
 
-.btn-resume {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 26px;
-    background: rgba(15,23,42,0.85);
-    color: var(--text-primary);
-    border: 1.5px solid rgba(14,165,233,0.35);
-    border-radius: 50px;
-    font-family: inherit;
-    font-size: 0.92rem;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow:
-        0 4px 18px rgba(14,165,233,0.12),
-        inset 0 0 12px rgba(14,165,233,0.05);
-}
+        .btn-resume {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 26px;
+            background: rgba(15, 23, 42, 0.85);
+            color: var(--text-primary);
+            border: 1.5px solid rgba(14, 165, 233, 0.35);
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow:
+                0 4px 18px rgba(14, 165, 233, 0.12),
+                inset 0 0 12px rgba(14, 165, 233, 0.05);
+        }
 
-.btn-resume::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50px;
-    background: var(--gradient-main);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 0;
-}
+        .btn-resume::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50px;
+            background: var(--gradient-main);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
 
-.btn-resume::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-    transition: left 0.6s ease;
-    z-index: 1;
-}
+        .btn-resume::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
 
-.btn-resume:hover::after {
-    left: 100%;
-}
+        .btn-resume:hover::after {
+            left: 100%;
+        }
 
-.btn-resume i {
-    position: relative;
-    z-index: 2;
-    background: var(--gradient-main);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    font-size: 1rem;
-    filter: drop-shadow(0 2px 6px rgba(14,165,233,0.4));
-    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
-}
+        .btn-resume i {
+            position: relative;
+            z-index: 2;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-size: 1rem;
+            filter: drop-shadow(0 2px 6px rgba(14, 165, 233, 0.4));
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
 
-.btn-resume > span,
-.btn-resume {
-    position: relative;
-}
+        .btn-resume>span,
+        .btn-resume {
+            position: relative;
+        }
 
-.btn-resume span:not(.btn-resume-text) {
-    z-index: 2;
-}
+        .btn-resume span:not(.btn-resume-text) {
+            z-index: 2;
+        }
 
-.btn-resume:hover {
-    transform: translateY(-3px) scale(1.02);
-    border-color: rgba(14,165,233,0.6);
-    color: #fff;
-    box-shadow:
-        0 10px 30px rgba(14,165,233,0.35),
-        0 0 20px rgba(99,102,241,0.2),
-        inset 0 0 18px rgba(14,165,233,0.12);
-}
+        .btn-resume:hover {
+            transform: translateY(-3px) scale(1.02);
+            border-color: rgba(14, 165, 233, 0.6);
+            color: #fff;
+            box-shadow:
+                0 10px 30px rgba(14, 165, 233, 0.35),
+                0 0 20px rgba(99, 102, 241, 0.2),
+                inset 0 0 18px rgba(14, 165, 233, 0.12);
+        }
 
-.btn-resume:hover i {
-    transform: translateY(3px) scale(1.15);
-    filter: drop-shadow(0 4px 10px rgba(14,165,233,0.8));
-    animation: resumeBounce 0.6s ease infinite;
-}
+        .btn-resume:hover i {
+            transform: translateY(3px) scale(1.15);
+            filter: drop-shadow(0 4px 10px rgba(14, 165, 233, 0.8));
+            animation: resumeBounce 0.6s ease infinite;
+        }
 
-@keyframes resumeBounce {
-    0%, 100% { transform: translateY(2px) scale(1.12); }
-    50% { transform: translateY(5px) scale(1.18); }
-}
+        @keyframes resumeBounce {
 
-.btn-resume:active {
-    transform: translateY(-1px) scale(0.98);
-}
+            0%,
+            100% {
+                transform: translateY(2px) scale(1.12);
+            }
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-    .btn-resume {
-        padding: 12px 24px;
-        font-size: 0.88rem;
-    }
-}
+            50% {
+                transform: translateY(5px) scale(1.18);
+            }
+        }
 
-@media (max-width: 768px) {
-    .btn-resume {
-        width: 100%;
-        justify-content: center;
-        padding: 13px 22px;
-    }
-}
+        .btn-resume:active {
+            transform: translateY(-1px) scale(0.98);
+        }
 
-@media (max-width: 480px) {
-    .btn-resume {
-        padding: 11px 20px;
-        font-size: 0.84rem;
-    }
-    .btn-resume i {
-        font-size: 0.92rem;
-    }
-}
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .btn-resume {
+                padding: 12px 24px;
+                font-size: 0.88rem;
+            }
+        }
 
-/* ══════════════════════════════════════════
+        @media (max-width: 768px) {
+            .btn-resume {
+                width: 100%;
+                justify-content: center;
+                padding: 13px 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn-resume {
+                padding: 11px 20px;
+                font-size: 0.84rem;
+            }
+
+            .btn-resume i {
+                font-size: 0.92rem;
+            }
+        }
+
+        
+        /* ══════════════════════════════════════════
    HERO BUTTONS — Force single row on desktop
 ══════════════════════════════════════════ */
 
-.hero-buttons {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
-    width: 100%;
-}
+        
+        .hero-buttons {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            width: 100%;
+        }
 
-.hero-buttons .btn-primary,
-.hero-buttons .btn-secondary,
-.hero-buttons .btn-resume {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    padding: 13px 22px;
-    font-size: 0.9rem;
-}
+        .hero-buttons .btn-primary,
+        .hero-buttons .btn-secondary,
+        .hero-buttons .btn-resume {
+            flex: 0 0 auto;
+            white-space: nowrap;
+            padding: 13px 22px;
+            font-size: 0.9rem;
+        }
 
-/* ── Tablet landscape — slightly tighter ── */
-@media (max-width: 1180px) {
-    .hero-buttons {
-        gap: 10px;
-    }
+        /* ── Tablet landscape — slightly tighter ── */
+        @media (max-width: 1180px) {
+            .hero-buttons {
+                gap: 10px;
+            }
 
-    .hero-buttons .btn-primary,
-    .hero-buttons .btn-secondary,
-    .hero-buttons .btn-resume {
-        padding: 12px 18px;
-        font-size: 0.86rem;
-    }
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary,
+            .hero-buttons .btn-resume {
+                padding: 12px 18px;
+                font-size: 0.86rem;
+            }
 
-    .hero-buttons i {
-        font-size: 0.88rem;
-    }
-}
+            .hero-buttons i {
+                font-size: 0.88rem;
+            }
+        }
 
-/* ── Tablet portrait — allow wrap if needed ── */
-@media (max-width: 1024px) {
-    .hero-buttons {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
+        /* ── Tablet portrait — allow wrap if needed ── */
+        @media (max-width: 1024px) {
+            .hero-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
 
-    .hero-buttons .btn-primary,
-    .hero-buttons .btn-secondary,
-    .hero-buttons .btn-resume {
-        padding: 13px 22px;
-        font-size: 0.9rem;
-    }
-}
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary,
+            .hero-buttons .btn-resume {
+                padding: 13px 22px;
+                font-size: 0.9rem;
+            }
+        }
 
-/* ── Mobile — full-width stacked ── */
-@media (max-width: 600px) {
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
+        /* ── Mobile — full-width stacked ── */
+        @media (max-width: 600px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
 
-    .hero-buttons .btn-primary,
-    .hero-buttons .btn-secondary,
-    .hero-buttons .btn-resume {
-        width: 100%;
-        justify-content: center;
-        padding: 13px 20px;
-        font-size: 0.92rem;
-    }
-}
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary,
+            .hero-buttons .btn-resume {
+                width: 100%;
+                justify-content: center;
+                padding: 13px 20px;
+                font-size: 0.92rem;
+            }
+        }
 
         /* Responsive icon sizes */
         @media (max-width: 768px) {
@@ -5619,7 +6433,7 @@
                     <div class="hero-contacts"><a href="mailto:alaguvel431@gmail.com" class="hero-contact-item"><i
                                 class="fas fa-envelope"></i> alaguvel431@gmail.com </a><a href="tel:+916383390714"
                             class="hero-contact-item"><i class="fas fa-phone"></i> +91 63833 90714</a></div>
-                                        <div class="hero-buttons">
+                    <div class="hero-buttons">
                         <button class="btn-primary" onclick="navigateTo('projects')">
                             <i class="fas fa-code"></i>
                             View Projects
@@ -5628,7 +6442,8 @@
                             <i class="fab fa-github"></i>
                             GitHub Stats
                         </button>
-                        <a href="resume.pdf" download="Alaguvel-A-Resume.pdf" class="btn-resume" title="Download my resume PDF">
+                        <a href="resume.pdf" download="Alaguvel-A-Resume.pdf" class="btn-resume"
+                            title="Download my resume PDF">
                             <i class="fas fa-file-arrow-down"></i>
                             Download Resume
                         </a>
@@ -5778,7 +6593,7 @@
                         <h3>Django</h3>
                         <span class="course-badge course-ongoing">Ongoing 🔄</span>
                     </div>
-                     <div class="course-card stagger-item delay-2">
+                    <div class="course-card stagger-item delay-2">
                         <div class="course-icon"><img
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
                                 alt="MongoDB" loading="lazy"></div>
@@ -6097,6 +6912,7 @@
                         <h4>Currently intern at</h4>
                         <p>BDreamz Technologies, Anna Nagar, Chennai</p>
                     </div>
+
                     <div class="ref-contact-socials"><a href="https://github.com/Alaguvel2410" target="_blank"
                             rel="noopener noreferrer" class="ref-social-btn" title="GitHub"><i
                                 class="fab fa-github"></i> </a><a href="https://www.linkedin.com/in/alaguvel2410/"
@@ -6106,6 +6922,7 @@
                                 class="fab fa-youtube"></i> </a><a href="mailto:alaguvel431@gmail.com"
                             class="ref-social-btn ref-mail" title="Email"><i class="fas fa-envelope"></i></a></div>
                 </div>
+
                 <div class="ref-contact-panel">
                     <div class="ref-panel-top">
                         <div class="ref-available-row"><span class="ref-avail-dot"></span> <span
@@ -6116,6 +6933,7 @@
                             applications. Currently deepening expertise in Django, MySQL and full-stack web development.
                             Looking for exciting roles where I can contribute and grow.</p>
                     </div>
+
                     <div class="ref-info-grid">
                         <div class="ref-info-card">
                             <div class="ref-info-icon"><i class="fas fa-user"></i></div>
@@ -6178,5 +6996,4 @@
     </div>
     <script>!function () { if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) return; const e = document.getElementById("cursorMain"), t = document.getElementById("cursorTrail"), n = document.getElementById("cursorDot"); if (!e || !t || !n) return; const a = document.createElement("div"); a.className = "cursor-label", a.id = "cursorLabel", document.body.appendChild(a); let i = window.innerWidth / 2, o = window.innerHeight / 2, s = i, r = o, c = i, l = o, d = i, u = o; let m = !1, p = null; function g(e, t, n) { return e + (t - e) * n } document.addEventListener("mousemove", a => { i = a.clientX, o = a.clientY, m || (m = !0, e.classList.remove("cursor-hidden"), t.classList.remove("cursor-hidden"), n.classList.remove("cursor-hidden")) }), document.addEventListener("mouseleave", () => { e.classList.add("cursor-hidden"), t.classList.add("cursor-hidden"), n.classList.add("cursor-hidden"), a.classList.remove("visible"), m = !1 }), document.addEventListener("mouseenter", () => { e.classList.remove("cursor-hidden"), t.classList.remove("cursor-hidden"), n.classList.remove("cursor-hidden"), m = !0 }), document.addEventListener("mousedown", () => { e.classList.add("clicking"), t.classList.add("clicking") }), document.addEventListener("mouseup", () => { e.classList.remove("clicking"), t.classList.remove("clicking") }); const f = ["a", "button", ".nav-link-item", ".fixed-social-btn", ".achievement-card", ".project-card", ".skill-card", ".tool-card", ".hobby-card", ".hobby-card", ".btn-primary", ".btn-secondary", ".back-to-home", ".apply-btn", ".duration-card", ".nav-cta", ".hero-contact-item", ".goals-tag", ".tech-tag", "input", "textarea", "select", ".exp-edu-card", ".footer-social a", "#cmdModal input", ".cmd-input-line"].join(", "), y = [{ selector: ".btn-primary", label: "Click" }, { selector: ".btn-secondary", label: "View" }, { selector: ".project-card", label: "Project" }, { selector: ".achievement-card", label: "Stats" }, { selector: ".fixed-social-btn.github-btn", label: "GitHub" }, { selector: ".fixed-social-btn.linkedin-btn", label: "LinkedIn" }, { selector: ".fixed-social-btn.youtube-btn", label: "YouTube" }, { selector: ".nav-cta", label: "Contact" }, { selector: ".back-to-home", label: "Back" }, { selector: ".tool-card", label: "Tool" }, { selector: ".skill-card", label: "Skill" }, { selector: ".hobby-card", label: "♟" }]; document.addEventListener("mouseover", n => { const i = n.target; if (!i || !i.closest) return; if (i.closest(f)) { e.classList.add("expand"), t.classList.add("expand"); const n = function (e) { for (const t of y) if (e.closest(t.selector)) return t.label; return "" }(i); n && (a.textContent = n, a.classList.add("visible")) } }), document.addEventListener("mouseout", n => { const i = n.target; if (!i || !i.closest) return; i.closest(f) && (e.classList.remove("expand"), t.classList.remove("expand"), a.classList.remove("visible")) }); document.querySelectorAll(".btn-primary, .btn-secondary, .fixed-social-btn, .nav-cta").forEach(e => { e.addEventListener("mousemove", function (e) { const t = this.getBoundingClientRect(), n = t.left + t.width / 2, a = t.top + t.height / 2, i = e.clientX - n, o = e.clientY - a; this.style.transform = `translate(${.3 * i}px, ${.3 * o}px)` }), e.addEventListener("mouseleave", function () { this.style.transform = "translate(0px, 0px)" }) }), function m() { s = g(s, i, .1), r = g(r, o, .1), c = g(c, i, .06), l = g(l, o, .06), d = g(d, i + 30, .08), u = g(u, o - 14, .08), e.style.left = i + "px", e.style.top = o + "px", t.style.left = s + "px", t.style.top = r + "px", n.style.left = c + "px", n.style.top = l + "px", a.style.left = d + "px", a.style.top = u + "px", p = requestAnimationFrame(m) }(), window.addEventListener("beforeunload", () => { p && cancelAnimationFrame(p) }) }(), window.addEventListener("scroll", () => { window.scrollY > 40 ? navbar.classList.add("scrolled") : navbar.classList.remove("scrolled") }); const hamburger = document.getElementById("hamburger"), mobileMenu = document.getElementById("mobileMenu"); function closeMobileMenu() { hamburger.classList.remove("open"), mobileMenu.classList.remove("open") } hamburger.addEventListener("click", () => { hamburger.classList.toggle("open"), mobileMenu.classList.toggle("open") }); const pages = ["home", "achievements", "skills", "projects", "experience", "contact"]; let currentPage = "home", isTransitioning = !1; const pageOrder = { home: 0, achievements: 1, skills: 2, projects: 3, experience: 4, contact: 5 }; function navigateTo(e, t = !0) { if (e === currentPage || isTransitioning) return; isTransitioning = !0; const n = document.getElementById("pageOverlay"), a = document.getElementById("page-" + currentPage), i = document.getElementById("page-" + e); if (!i) return void (isTransitioning = !1); const o = (pageOrder[e] ?? 0) > (pageOrder[currentPage] ?? 0); n.classList.add("flash"), setTimeout(() => n.classList.remove("flash"), 200), a && (a.style.display = "block", a.classList.remove("page-enter-right", "page-enter-left", "page-exit-left", "page-exit-right"), a.classList.add(o ? "page-exit-left" : "page-exit-right"), setTimeout(() => { a.style.display = "none", a.classList.remove("page-exit-left", "page-exit-right", "page-active", "page-visible") }, 300)), setTimeout(() => { i.style.display = "block", i.classList.remove("page-enter-right", "page-enter-left", "page-exit-left", "page-exit-right"), i.classList.add("page-active", o ? "page-enter-right" : "page-enter-left"), window.scrollTo({ top: 0, behavior: "instant" }), setTimeout(() => { i.classList.add("page-visible"), i.querySelectorAll(".animate-on-scroll").forEach(e => { animationObserver.observe(e) }), i.querySelectorAll(".stagger-item").forEach(e => { e.classList.remove("animated"), setTimeout(() => e.classList.add("animated"), 80) }), isTransitioning = !1 }, 50); document.title = { home: "alagu...✌️", achievements: "Achievements", skills: "Skills", projects: "Projects", experience: "Experience", contact: "Contact" }[e] || "alagu...✌️" }, a ? 280 : 0), currentPage = e, t && history.pushState({ page: e }, "", "#" + e), updateActiveNav(e), closeMobileMenu(), "contact" !== e || visitorInitialized || (visitorInitialized = !0, setTimeout(initVisitorCounter, 400)); const s = document.getElementById("siteFooter"); s && ("contact" === e ? setTimeout(() => { s.style.display = "block", s.style.opacity = "0", s.style.transform = "translateY(20px)", s.style.transition = "opacity 0.5s ease, transform 0.5s ease", requestAnimationFrame(() => { s.style.opacity = "1", s.style.transform = "translateY(0)" }) }, 350) : (s.style.transition = "none", s.style.opacity = "0", s.style.display = "none")) } function updateActiveNav(e) { document.querySelectorAll(".nav-link-item").forEach(e => { e.classList.remove("nav-active") }); const t = document.querySelector(`.nav-link-item[data-page="${e}"]`); t && (t.classList.add("nav-active"), moveNavIndicator(t)) } function moveNavIndicator(e) { if (window.innerWidth <= 768) return; const t = document.getElementById("navIndicator"), n = document.getElementById("navLinks"); if (!t || !n || !e) return; const a = n.getBoundingClientRect(), i = e.getBoundingClientRect(); t.style.left = i.left - a.left + "px", t.style.width = i.width + "px", t.style.opacity = "1" } window.addEventListener("popstate", e => { navigateTo(e.state && e.state.page ? e.state.page : "home", !1) }), document.querySelectorAll(".nav-link-item").forEach(e => { e.addEventListener("click", function (e) { e.preventDefault(); const t = this.getAttribute("data-page"); t && navigateTo(t) }) }), document.querySelectorAll(".mobile-menu a").forEach(e => { e.addEventListener("click", function (e) { e.preventDefault(); const t = this.getAttribute("data-page"); t && navigateTo(t) }) }), window.addEventListener("DOMContentLoaded", () => { pages.forEach(e => { const t = document.getElementById("page-" + e); t && (t.style.display = "none") }); const e = document.getElementById("siteFooter"); e && (e.style.display = "none"); const t = window.location.hash.replace("#", ""), n = pages.includes(t) ? t : "home", a = document.getElementById("page-" + n); a && (a.style.display = "block", a.classList.add("page-active", "page-visible")), currentPage = n, history.replaceState({ page: n }, "", "#" + n), updateActiveNav(n); const i = document.getElementById("siteFooter"); i && ("contact" === n ? (i.style.display = "block", i.style.opacity = "1", i.style.transform = "translateY(0)") : i.style.display = "none"), setTimeout(() => { const e = document.querySelector('.nav-link-item[data-page="home"]'); e && moveNavIndicator(e) }, 300) }), window.addEventListener("resize", () => { const e = document.querySelector(".nav-link-item.nav-active"); if (e && moveNavIndicator(e), window.innerWidth <= 768) { const e = document.getElementById("navIndicator"); e && (e.style.opacity = "0") } }); const navLinkItems = document.querySelectorAll(".nav-link-item:not(.nav-cta)"), navIndicator = document.getElementById("navIndicator"), navLinksEl = document.getElementById("navLinks"), sectionIds = ["home", "achievements", "skills", "projects", "experience", "contact"]; function moveIndicator(e) { if (!e || !navLinksEl || window.innerWidth <= 768) return; const t = navLinksEl.getBoundingClientRect(), n = e.getBoundingClientRect(); navIndicator.style.left = n.left - t.left + "px", navIndicator.style.width = n.width + "px", navIndicator.style.opacity = "1" } function setActiveLink(e) { navLinkItems.forEach(e => e.classList.remove("nav-active")); const t = document.querySelector(`.nav-link-item[href="${e}"]`); t ? (t.classList.add("nav-active"), moveIndicator(t)) : navIndicator.style.opacity = "0" } document.querySelectorAll(".nav-link-item, .mobile-menu a").forEach(e => { e.addEventListener("click", function (e) { const t = this.getAttribute("href"); if (!t || !t.startsWith("#")) return; e.preventDefault(); const n = document.querySelector(t); if (!n) return; closeMobileMenu(); const a = navbar.offsetHeight, i = n.getBoundingClientRect().top + window.scrollY - a - 16; window.scrollTo({ top: i, behavior: "smooth" }), n.classList.remove("section-entering"), n.offsetWidth, n.classList.add("section-entering"), setTimeout(() => n.classList.remove("section-entering"), 700), setActiveLink(t) }) }); const navSections = sectionIds.map(e => document.getElementById(e)).filter(Boolean), activeSectionObserver = new IntersectionObserver(e => { e.forEach(e => { e.isIntersecting && setActiveLink("#" + e.target.id) }) }, { rootMargin: "-30% 0px -60% 0px", threshold: 0 }); navSections.forEach(e => activeSectionObserver.observe(e)), window.addEventListener("resize", () => { const e = document.querySelector(".nav-link-item.nav-active"); e && moveIndicator(e), window.innerWidth <= 768 && (navIndicator.style.opacity = "0") }), window.addEventListener("DOMContentLoaded", () => { setTimeout(() => setActiveLink("#home"), 200) }); var scrollTicking = !1; function updateOnScroll() { var e = window.scrollY, t = document.documentElement.scrollHeight - window.innerHeight, n = t > 0 ? e / t * 100 : 0; document.getElementById("scrollProgress").style.width = n + "%", scrollTicking = !1 } window.addEventListener("scroll", function () { scrollTicking || (requestAnimationFrame(updateOnScroll), scrollTicking = !0) }); var failedImages = 0; function handleImageError(e) { if (failedImages++, e.style.display = "none", e.parentElement && (e.parentElement.style.display = "none"), failedImages >= 2) { var t = document.getElementById("githubStatsContainer"); t && (t.style.display = "none"); var n = document.getElementById("githubFallback"); n && n.classList.add("show") } } var observerOptions = { root: null, rootMargin: "0px", threshold: .1 }, animationObserver = new IntersectionObserver(function (e) { e.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("animated"), e.target.querySelectorAll(".stagger-item").forEach(function (e, t) { setTimeout(function () { e.classList.add("animated") }, 100 * t) }); var t = e.target.querySelector(".quote"); t && setTimeout(function () { t.classList.add("animated") }, 200), e.target.querySelectorAll(".hobby-card").forEach(function (e, t) { setTimeout(function () { e.classList.add("animated") }, 300 + 200 * t) }), e.target.querySelectorAll(".tool-card").forEach(function (e, t) { setTimeout(function () { e.classList.add("animated") }, 100 * t) }), e.target.querySelectorAll(".achievement-card").forEach(function (e, t) { setTimeout(function () { e.classList.add("animated"); var t = e.querySelector(".counter"); t && !t.classList.contains("counted") && (t.classList.add("counted"), setTimeout(function () { animateAchievementCounter(t) }, 300)) }, 150 * t) }), e.target.querySelectorAll(".exp-edu-card").forEach(function (e, t) { setTimeout(function () { e.classList.add("animated") }, 150 * t) }) } }) }, observerOptions); function animateAchievementCounter(e) { var t = parseInt(e.getAttribute("data-target")); if (isNaN(t) || t <= 0) e.textContent = "0+"; else { var n = Math.min(t, 60), a = t / n, i = 2e3 / n, o = 0; !function n() { (o += a) < t ? (e.textContent = Math.floor(o) + "+", setTimeout(n, i)) : e.textContent = t + "+" }() } } document.querySelectorAll(".animate-on-scroll").forEach(function (e) { animationObserver.observe(e) }); var firebaseInitialized = !1; try { var firebaseConfig = { apiKey: "AIzaSyDpaj5hgJXhIlVUHAaLIrgxqVwwc9lu4yE", authDomain: "alaguvel-portfolio-91603.firebaseapp.com", databaseURL: "https://alaguvel-portfolio-91603-default-rtdb.firebaseio.com", projectId: "alaguvel-portfolio-91603", storageBucket: "alaguvel-portfolio-91603.firebasestorage.app", messagingSenderId: "1054256222144", appId: "1:1054256222144:web:c275600ad68ba5057d0225" }; firebase.initializeApp(firebaseConfig), firebaseInitialized = !0 } catch (e) { console.warn("Firebase initialization failed:", e) } var visitorAnimationStarted = !1, visitorInitialized = !1; function initVisitorCounter() { var e = document.getElementById("visitorCountDisplay"); if (e) if (firebaseInitialized) try { var t = firebase.database().ref("visitor_count"), n = "firebase_session_counted"; sessionStorage.getItem(n) || (t.transaction(function (e) { return (e || 0) + 1 }).catch(function (e) { console.warn("Transaction failed:", e) }), sessionStorage.setItem(n, "true")), t.on("value", function (t) { var n = t.val() || 0; visitorAnimationStarted ? e.textContent = n.toLocaleString("en-US") : (visitorAnimationStarted = !0, startVisitorAnimation(e, n)) }, function (t) { console.warn("Firebase read failed:", t), e.textContent = "—" }) } catch (t) { console.warn("Visitor counter error:", t), e.textContent = "—" } else e.textContent = "—" } function startVisitorAnimation(e, t) { if (t <= 0) e.textContent = "0"; else { var n = Math.min(t, 80), a = t / n, i = 2500 / n, o = 0; !function n() { (o += a) < t ? (e.textContent = Math.floor(o).toLocaleString("en-US"), setTimeout(n, i)) : e.textContent = t.toLocaleString("en-US") }() } } function detectTrafficSource() { const e = document.referrer, t = new URLSearchParams(window.location.search), n = t.get("utm_source"); let a = "direct", i = "none"; if (n) a = n.toLowerCase().trim(), i = (t.get("utm_medium") || "unknown").toLowerCase().trim(); else if (e) { const t = e.toLowerCase(); t.includes("linkedin.com") ? (a = "linkedin", i = "social") : t.includes("github.com") ? (a = "github", i = "social") : t.includes("google.com") ? (a = "google", i = "search") : t.includes("whatsapp.com") ? (a = "whatsapp", i = "social") : t.includes("instagram.com") ? (a = "instagram", i = "social") : t.includes("twitter.com") || t.includes("t.co") ? (a = "twitter", i = "social") : t.includes("127.0.0.1") || t.includes("localhost") ? (a = "localhost", i = "test") : (a = "referral", i = "referral") } "function" == typeof gtag && gtag("event", "traffic_source", { event_category: "traffic", event_label: a, source: a, medium: i }) } document.addEventListener("click", function (e) { const t = e.target.closest("[data-page]"); if (!t) return; const n = t.getAttribute("data-page"); n && (t.closest(".nav-links") || t.closest(".mobile-menu") || (e.preventDefault(), "function" == typeof navigateTo && navigateTo(n))) }), window.addEventListener("load", function () { document.body.classList.add("loaded"), setTimeout(initVisitorCounter, 300), "function" == typeof gtag && gtag("event", "portfolio_view", { event_category: "engagement", event_label: "Portfolio Visit" }) }), "127.0.0.1" === window.location.hostname || "localhost" === window.location.hostname ? console.log("Local testing - Analytics disabled") : detectTrafficSource(); const LOOKER_URL = "https://datastudio.google.com/reporting/1d3db738-8438-40ad-ad38-f1402e587294", PASSCODE = "4693", cmdModal = document.getElementById("cmdModal"), cmdScreen = document.getElementById("cmdScreen"), cmdInput = document.getElementById("cmdInput"), cmdInputLine = document.getElementById("cmdInputLine"), cmdSubmit = document.getElementById("cmdSubmit"); let isProcessing = !1, animationInterval = null, animationTimeoutId = null, currentLoadingLine = 0; const quantumAudioCtx = new (window.AudioContext || window.webkitAudioContext); function quantum_playOsc(e) { quantumAudioCtx.resume && quantumAudioCtx.resume(); const { freq: t = 440, type: n = "sine", duration: a = .16, gain: i = .8, fade: o = .08, detune: s = 0, pan: r = 0 } = e, c = quantumAudioCtx.currentTime, l = quantumAudioCtx.createOscillator(), d = quantumAudioCtx.createGain(), u = quantumAudioCtx.createStereoPanner ? quantumAudioCtx.createStereoPanner() : null; l.type = n, l.frequency.setValueAtTime(t, c), s && l.detune.setValueAtTime(s, c), d.gain.setValueAtTime(i, c), d.gain.linearRampToValueAtTime(0, c + a - o), l.connect(d), u ? (u.pan.value = r, d.connect(u), u.connect(quantumAudioCtx.destination)) : d.connect(quantumAudioCtx.destination), l.start(c), l.stop(c + a) } function quantum_keypadClick() { quantum_playOsc({ freq: 1412, type: "square", duration: .036, gain: .8, fade: .02, detune: 7 }), quantum_playOsc({ freq: 208, type: "triangle", duration: .023, gain: .6, fade: .006, detune: -5, pan: -.09 }), setTimeout(() => { quantum_playOsc({ freq: 1900, type: "triangle", duration: .045, gain: .75, fade: .025, detune: 12, pan: .14 }) }, 16) } function quantum_processingBlip() { quantum_playOsc({ freq: 501 + 46 * Math.random(), type: "triangle", duration: .125, gain: .8, fade: .045, pan: .6 * (Math.random() - .5) }), setTimeout(() => quantum_playOsc({ freq: 2040 + 71 * Math.random(), type: "sine", duration: .04, gain: .07, fade: .014, pan: .25 * (Math.random() - .5) }), 22), setTimeout(() => quantum_playOsc({ freq: 120, type: "triangle", duration: .055, gain: .05, fade: .02, pan: -.35 * Math.random() }), 8) } function quantum_processingScanLine() { quantum_playOsc({ freq: 340, type: "triangle", duration: .11, gain: .15, fade: .055, pan: -.22 }), setTimeout(() => quantum_playOsc({ freq: 980, type: "sine", duration: .09, gain: .13, fade: .04, detune: 34, pan: .18 }), 24), setTimeout(() => quantum_playOsc({ freq: 1920, type: "sine", duration: .07, gain: .1, fade: .031, detune: -19 }), 66), setTimeout(() => quantum_playOsc({ freq: 1010, type: "triangle", duration: .08, gain: .11, fade: .024, pan: .08 }), 78) } function quantum_successChime() { quantum_playOsc({ freq: 521, type: "triangle", duration: .22, gain: .28, fade: .04 }), setTimeout(() => quantum_playOsc({ freq: 1310, type: "triangle", duration: .16, gain: .25, fade: .031 }), 38), setTimeout(() => quantum_playOsc({ freq: 1920, type: "triangle", duration: .09, gain: .22, fade: .021 }), 62), setTimeout(() => quantum_playOsc({ freq: 2400, type: "sine", duration: .13, gain: .36, fade: .041 }), 88) } function quantum_failedAccessChime() { quantum_playOsc({ freq: 128, type: "triangle", duration: .2, gain: .29, fade: .07 }), setTimeout(() => quantum_playOsc({ freq: 70, type: "sine", duration: .22, gain: .25, fade: .09 }), 54), setTimeout(() => quantum_playOsc({ freq: 310, type: "sawtooth", duration: .14, gain: .22, fade: .031 }), 75), setTimeout(() => quantum_playOsc({ freq: 175, type: "square", duration: .35, gain: .36, fade: .15 }), 110), setTimeout(() => { for (let e = 0; e < 4; e++)setTimeout(() => { quantum_playOsc({ freq: 54, type: "sine", duration: .09, gain: .19, fade: .06, pan: 0 }) }, 44 * e); setTimeout(() => { quantum_playOsc({ freq: 222, type: "square", duration: .095, gain: .1, fade: .04, pan: 0 }) }, 120); try { window.navigator.vibrate && window.navigator.vibrate(140) } catch (e) { } }, 295) } function writeLine(e, t = "") { const n = document.createElement("span"); n.className = t, n.textContent = e, cmdScreen.appendChild(n), cmdScreen.scrollTop = cmdScreen.scrollHeight } function updateLastLine(e, t = "") { const n = cmdScreen.getElementsByTagName("span"); if (n.length > 0) { const a = n[n.length - 1]; a.textContent = e, a.className = t } else writeLine(e, t); cmdScreen.scrollTop = cmdScreen.scrollHeight } function clearScreenContent() { cmdScreen.innerHTML = "" } const initialLoadingScripts = [{ text: "Initializing secure connection...", className: "cmd-info", delay: 700 }, { text: "Fetching critical dependencies...", className: "cmd-info", animateProgress: !0, total: 100, prefix: "[  ", suffix: "%] ", speed: 50 }, { text: "Scanning for system vulnerabilities...", className: "cmd-info", delay: 800 }, { text: "Verifying integrity of modules...", className: "cmd-info", animateProgressBar: !0, total: 20, barChar: "#", emptyChar: ".", barLength: 20, speed: 60, prefix: "" }, { text: "Establishing encrypted tunnel...", className: "cmd-info", delay: 750 }, { text: "Processing authentication protocols...", className: "cmd-info", animateProgressBar: !0, total: 10, barChar: ">", emptyChar: "-", barLength: 15, speed: 100, prefix: "" }, { text: "System ready. Awaiting command...", className: "cmd-success", delay: 1e3 }, { text: "Enter passcode:", className: "cmd-prompt", delay: 0 }]; function startInitialLoadingAnimation() { animationInterval && clearInterval(animationInterval), animationTimeoutId && clearTimeout(animationTimeoutId), clearScreenContent(), cmdInputLine.style.display = "none", isProcessing = !0, currentLoadingLine = 0, function e() { if (currentLoadingLine >= initialLoadingScripts.length) return clearInterval(animationInterval), animationInterval = null, isProcessing = !1, cmdInputLine.style.display = "flex", void cmdInput.focus(); const t = initialLoadingScripts[currentLoadingLine]; if (writeLine(t.text, t.className), quantum_processingBlip(), t.animateProgress || t.animateProgressBar) { let n = 0; const a = t.barChar || "#", i = t.emptyChar || ".", o = t.barLength || 20, s = t.speed || 80; animationInterval = setInterval(() => { if (t.animateProgressBar) { let e = Math.floor(n / t.total * o); updateLastLine(`[${a.repeat(e) + i.repeat(o - e)}] ${t.text.split("...")[0]}...`, t.className) } else updateLastLine(`${t.prefix}${String(Math.floor(n)).padStart(3, " ")}${t.suffix}${t.text.substring(t.text.indexOf("%]") + 1)}`, t.className); n += t.total / (2 * o || 20), n > t.total && (n = t.total, clearInterval(animationInterval), animationInterval = null, animationTimeoutId = setTimeout(() => { currentLoadingLine++, e() }, t.delay || 500)) }, s) } else animationTimeoutId = setTimeout(() => { currentLoadingLine++, e() }, t.delay || 700) }() } function showCmd() { cmdModal.style.display = "flex"; try { quantumAudioCtx.resume && quantumAudioCtx.resume() } catch (e) { } cmdInput.value = "", setTimeout(() => { startInitialLoadingAnimation() }, 50) } function hideCmd() { animationInterval && clearInterval(animationInterval), animationTimeoutId && clearTimeout(animationTimeoutId), cmdModal.style.display = "none", clearScreenContent(), cmdInputLine.style.display = "none", isProcessing = !1 } async function tryLogin() { if (isProcessing) return; const e = cmdInput.value; cmdInput.value = "", isProcessing = !0, cmdInputLine.style.display = "none", "4693" === e ? await handleSuccessfulLogin() : await handleFailedLogin(), isProcessing = !1, cmdInputLine.style.display = "flex", cmdInput.focus() } async function handleSuccessfulLogin() { clearScreenContent(), quantum_processingScanLine(), setTimeout(quantum_processingScanLine, 180), await typeAndScroll("Authentication successful", "cmd-success", 200), await typeAndScroll("Password matched", "cmd-success", 200), await typeAndScroll("Decrypting secure layer...", "cmd-info", 300), await typeAndScroll("Access granted...", "cmd-success", 400), await typeAndScroll("Initializing private session...", "cmd-info", 300), await animateFullProgress("Loading dashboard modules: ", 2800, "cmd-info"), await typeAndScroll("System processes completed successfully.", "cmd-success", 100), await typeAndScroll("Session ready.", "cmd-success", 100); const e = document.createElement("span"); e.className = "cmd-success", e.innerHTML = `<br> ✔ Success...!<a href="${LOOKER_URL}" target="_blank" rel="noopener noreferrer" style="color:#0f0;text-decoration:underline;font-weight:bold;cursor:pointer;" onclick="setTimeout(hideCmd,800)">Click↗</a>`, cmdScreen.appendChild(e), cmdScreen.scrollTop = cmdScreen.scrollHeight } async function handleFailedLogin() { clearScreenContent(), quantum_failedAccessChime(), setTimeout(quantum_processingScanLine, 160), await typeAndScroll("Authentication failed", "cmd-error", 200), await typeAndScroll("Password mismatch detected", "cmd-error", 200), await typeAndScroll("Access denied", "cmd-error", 300), await typeAndScroll("Retry required", "cmd-warning", 400), writeLine("Enter passcode:", "cmd-prompt") } async function typeAndScroll(e, t, n) { return new Promise(a => { writeLine("", t); let i = 0; const o = setInterval(() => { i < e.length ? (updateLastLine(e.substring(0, i + 1) + (i === e.length - 1 ? "" : "_"), t), i++) : (clearInterval(o), updateLastLine(e, t), cmdScreen.scrollTop = cmdScreen.scrollHeight, setTimeout(a, n)) }, 40) }) } async function animateFullProgress(e, t, n) { return new Promise(a => { writeLine(`${e}0%`, n); let i = 0; const o = setInterval(() => { i += 100 / (t / 50), i >= 100 ? (i = 100, clearInterval(o), updateLastLine(`${e}100%`, n), setTimeout(a, 500)) : updateLastLine(`${e}${Math.floor(i)}%`, n) }, 50) }) } document.addEventListener("keydown", e => { e.ctrlKey && e.shiftKey && "KeyA" === e.code && (e.preventDefault(), showCmd()), "Escape" === e.key && "flex" === cmdModal.style.display && hideCmd() }), cmdSubmit.addEventListener("click", tryLogin), cmdInput.addEventListener("keydown", e => { quantum_keypadClick(), "Enter" === e.key && tryLogin() })</script>
 </body>
-
 </html>
