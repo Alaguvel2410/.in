@@ -4702,6 +4702,194 @@
             }
         }
 
+        /* ══════════════════════════════════════════
+   GOALS ICON — Premium Dark Theme
+══════════════════════════════════════════ */
+
+.goals-emoji {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    background: rgba(14,165,233,0.1);
+    border: 1px solid rgba(14,165,233,0.22);
+    box-shadow:
+        0 8px 24px rgba(14,165,233,0.18),
+        inset 0 0 16px rgba(14,165,233,0.08);
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    font-size: 2.6rem;
+}
+
+.goals-emoji i {
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.2rem;
+    filter: drop-shadow(0 3px 10px rgba(14,165,233,0.5));
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.goals-card-wrapper:hover .goals-emoji {
+    transform: translateY(-4px) scale(1.05);
+    border-color: rgba(14,165,233,0.4);
+    background: rgba(14,165,233,0.14);
+    box-shadow:
+        0 12px 36px rgba(14,165,233,0.3),
+        inset 0 0 20px rgba(14,165,233,0.12);
+}
+
+.goals-card-wrapper:hover .goals-emoji i {
+    transform: scale(1.15) rotate(10deg);
+    filter: drop-shadow(0 5px 14px rgba(14,165,233,0.8));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .goals-emoji { width: 70px; height: 70px; border-radius: 18px; }
+    .goals-emoji i { font-size: 1.9rem; }
+}
+
+@media (max-width: 480px) {
+    .goals-emoji { width: 60px; height: 60px; border-radius: 16px; margin-bottom: 16px; }
+    .goals-emoji i { font-size: 1.6rem; }
+}
+
+@media (max-width: 380px) {
+    .goals-emoji { width: 54px; height: 54px; }
+    .goals-emoji i { font-size: 1.4rem; }
+}
+
+
+/* ══════════════════════════════════════════
+   FIXED SOCIAL ICONS — Dark Theme Unified
+══════════════════════════════════════════ */
+
+.fixed-social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: rgba(15,23,42,0.85);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        0 6px 20px rgba(0,0,0,0.4),
+        inset 0 0 10px rgba(14,165,233,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    overflow: hidden;
+}
+
+.fixed-social-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: var(--gradient-main);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 0;
+}
+
+.fixed-social-btn i {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+.fixed-social-btn:hover {
+    transform: translateY(-4px) scale(1.06);
+    border-color: rgba(14,165,233,0.45);
+    color: #fff;
+    box-shadow:
+        0 12px 30px rgba(14,165,233,0.35),
+        inset 0 0 14px rgba(14,165,233,0.15);
+}
+
+.fixed-social-btn:hover::before {
+    opacity: 0.18;
+}
+
+.fixed-social-btn:hover i {
+    transform: scale(1.18) rotate(-6deg);
+}
+
+/* GitHub */
+.github-btn {
+    background: rgba(15,23,42,0.85);
+}
+.github-btn:hover {
+    border-color: rgba(148,163,184,0.5);
+    box-shadow:
+        0 12px 30px rgba(148,163,184,0.25),
+        inset 0 0 14px rgba(255,255,255,0.06);
+}
+.github-btn:hover i {
+    color: #fff;
+}
+
+/* LinkedIn */
+.linkedin-btn:hover {
+    border-color: rgba(10,102,194,0.6);
+    box-shadow:
+        0 12px 30px rgba(10,102,194,0.4),
+        inset 0 0 14px rgba(10,102,194,0.18);
+}
+.linkedin-btn:hover i {
+    color: #38bdf8;
+}
+
+/* YouTube */
+.youtube-btn {
+    background: rgba(15,23,42,0.85);
+}
+.youtube-btn:hover {
+    border-color: rgba(220,38,38,0.55);
+    box-shadow:
+        0 12px 30px rgba(220,38,38,0.35),
+        inset 0 0 14px rgba(220,38,38,0.18);
+}
+.youtube-btn:hover i {
+    color: #f87171;
+}
+
+/* Stack spacing */
+.fixed-social-icons {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fixed-social-icons { bottom: 20px; right: 20px; gap: 10px; }
+    .fixed-social-btn { width: 46px; height: 46px; font-size: 1.15rem; border-radius: 12px; }
+}
+
+@media (max-width: 480px) {
+    .fixed-social-icons { bottom: 16px; right: 16px; gap: 8px; }
+    .fixed-social-btn { width: 42px; height: 42px; font-size: 1.05rem; border-radius: 11px; }
+}
+
+@media (max-width: 380px) {
+    .fixed-social-btn { width: 38px; height: 38px; font-size: 0.95rem; border-radius: 10px; }
+}
+
      /* ══════════════════════════════════════════
         ACHIEVEMENT ICONS — Premium Dark Theme
         ══════════════════════════════════════════ */
@@ -5178,7 +5366,7 @@
                 <div class="goals-card-wrapper stagger-item delay-1">
                     <div class="goals-decor-1"></div>
                     <div class="goals-decor-2"></div>
-                    <div class="goals-emoji">🎯</div>
+                    <div class="goals-emoji"><i class="fas fa-crosshairs"></i></div>
                     <h3 class="goals-title">My Vision for the Next 3-5 Years</h3>
                     <p class="goals-text">I aspire to become a <strong>highly skilled Python Full Stack
                             Developer</strong> with deep expertise in Django, databases, and modern web technologies. My
