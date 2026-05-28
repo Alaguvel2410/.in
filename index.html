@@ -6864,6 +6864,27 @@
         }
 
         /* ══════════════════════════════════════════
+        THANKS TEXT — Center alignment fix
+        ══════════════════════════════════════════ */
+
+        .visitor-section {
+            text-align: center;
+        }
+
+        .visitor-text {
+            display: inline-flex !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            text-align: center;
+        }
+
+        /* Force centering by wrapping in flex */
+        .visitor-section > .visitor-text {
+            width: fit-content;
+            margin: 20px auto 0 !important;
+        }
+
+        /* ══════════════════════════════════════════
         HERO BUTTONS — Force single row on desktop
         ══════════════════════════════════════════ */
 
