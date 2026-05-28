@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0ea5e9">
     <link rel="canonical" href="https://alaguvel2410.github.io/">
-    <meta property="og:title" content="Alaguvel A. - Python Full Stack Developer Portfolio">
+    <meta property="og:title" content="Alaguvel A - Python Full Stack Developer Portfolio">
     <meta property="og:description" content="B.E. ECE Graduate | Python Full Stack Developer Intern @ BDreamz Technologies">
     <meta property="og:image" content="https://alaguvel2410.github.io/portfolio-preview.png">
     <meta property="og:url" content="https://alaguvel2410.github.io/">
@@ -1980,26 +1980,33 @@
         }
 
         .quote.animated { animation: quoteReveal 0.7s ease forwards; }
-
         /* ═══════════ FOOTER ═══════════ */
         .footer {
-            background: rgba(2,8,23,0.95);
+            background: rgba(2,8,23,0.98);
             border-top: 1px solid var(--border-glass);
-            padding: 60px 24px 30px;
+            padding: 56px 24px 28px;
             position: relative;
             z-index: 1;
+            margin-top: 40px;
         }
 
         .footer-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 48px;
+            grid-template-columns: 1.8fr 1fr 1fr;
+            gap: 0;
             margin-bottom: 40px;
+            align-items: start;
+        }
+
+        /* Brand column */
+        .footer-brand {
+            padding-right: 48px;
+            border-right: 1px solid var(--border-glass);
         }
 
         .footer-brand .footer-logo {
@@ -2010,19 +2017,19 @@
         }
 
         .footer-logo-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
             background: var(--gradient-main);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(14,165,233,0.3);
+            box-shadow: 0 4px 14px rgba(14,165,233,0.3);
+            flex-shrink: 0;
         }
 
         .footer-logo-text {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             background: var(--gradient-main);
             background-clip: text;
@@ -2033,28 +2040,30 @@
 
         .footer-brand p {
             color: var(--text-muted);
-            font-size: 0.88rem;
-            line-height: 1.7;
-            margin-bottom: 24px;
+            font-size: 0.84rem;
+            line-height: 1.75;
+            margin-bottom: 22px;
+            max-width: 300px;
         }
 
         .footer-social {
             display: flex;
-            gap: 10px;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .footer-social a {
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             border-radius: var(--radius-sm);
-            background: rgba(30,41,59,0.6);
+            background: rgba(30,41,59,0.7);
             border: 1px solid var(--border-glass);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
         }
 
@@ -2063,42 +2072,72 @@
             border-color: rgba(14,165,233,0.3);
             color: var(--primary);
             transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(14,165,233,0.15);
+        }
+
+        /* Link columns */
+        .footer-col {
+            padding-left: 40px;
+        }
+
+        .footer-col:last-child {
+            padding-left: 36px;
+            border-left: 1px solid var(--border-glass);
         }
 
         .footer-col h4 {
             color: var(--text-primary);
-            font-size: 0.92rem;
+            font-size: 0.82rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-glass);
         }
 
         .footer-col ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 2px;
         }
 
         .footer-col ul li a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.83rem;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        .footer-col ul li a i {
+            font-size: 0.65rem;
+            color: var(--primary);
+            opacity: 0.6;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            width: 10px;
+            flex-shrink: 0;
         }
 
         .footer-col ul li a:hover {
-            color: var(--primary);
-            transform: translateX(4px);
+            color: var(--primary-light);
+            padding-left: 4px;
+        }
+
+        .footer-col ul li a:hover i {
+            opacity: 1;
+            transform: translateX(2px);
         }
 
         .footer-divider {
             height: 1px;
-            background: var(--border-glass);
-            margin-bottom: 24px;
+            background: linear-gradient(90deg, transparent, var(--border-glass), transparent);
+            margin-bottom: 22px;
         }
 
         .footer-bottom {
@@ -2106,18 +2145,922 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         .footer-bottom p {
             color: var(--text-muted);
-            font-size: 0.82rem;
+            font-size: 0.78rem;
+            line-height: 1.5;
         }
 
         .footer-bottom span {
             color: var(--primary);
+            font-weight: 600;
         }
 
+                /* ══════════════════════════════════════════
+           REFERENCE-STYLE CONTACT + FOOTER
+        ══════════════════════════════════════════ */
+
+        .footer {
+            background: rgba(2,8,23,0.98);
+            border-top: 1px solid var(--border-glass);
+            padding: 80px 24px 40px;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+        }
+
+        .ref-contact-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ── HEADER ── */
+        .ref-contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ref-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(14,165,233,0.08);
+            border: 1px solid rgba(14,165,233,0.2);
+            border-radius: 50px;
+            font-size: 0.82rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .ref-section-label i { font-size: 0.72rem; }
+
+        .ref-section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+        }
+
+        .ref-highlight {
+            background: var(--gradient-main);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .ref-section-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── LAYOUT ── */
+        .ref-contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* ── LEFT CARDS ── */
+        .ref-contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .ref-c-card {
+            padding: 24px 26px;
+            background: rgba(15,23,42,0.6);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ref-c-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gradient-main);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .ref-c-card:hover::before { transform: scaleY(1); }
+
+        .ref-c-card:hover {
+            border-color: rgba(14,165,233,0.25);
+            transform: translateX(6px);
+            background: rgba(14,165,233,0.04);
+            box-shadow: 0 8px 30px rgba(14,165,233,0.08);
+        }
+
+        .ref-c-card i {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .ref-c-card:hover i { transform: scale(1.15) rotate(8deg); }
+
+        .ref-c-card h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .ref-c-card p,
+        .ref-c-card a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        .ref-c-card a:hover { color: var(--primary); }
+
+        /* ── SOCIAL BUTTONS ── */
+        .ref-contact-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .ref-social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(15,23,42,0.7);
+            border: 1px solid var(--border-glass);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ref-social-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .ref-social-btn.ref-li::before { background: #0077b5; }
+        .ref-social-btn.ref-yt::before { background: #cc0000; }
+        .ref-social-btn.ref-mail::before { background: var(--gradient-main); }
+        .ref-social-btn:not(.ref-li):not(.ref-yt):not(.ref-mail)::before {
+            background: #1a1a2e;
+        }
+
+        .ref-social-btn:hover::before { opacity: 1; }
+
+        .ref-social-btn i { position: relative; z-index: 1; }
+
+        .ref-social-btn:hover {
+            color: #fff;
+            border-color: transparent;
+            transform: translateY(-6px) scale(1.08);
+            box-shadow: 0 10px 28px rgba(14,165,233,0.25);
+        }
+
+        /* ── RIGHT PANEL ── */
+        .ref-contact-panel {
+            background: rgba(15,23,42,0.6);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 40px 36px;
+            backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ref-contact-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-main);
+        }
+
+        .ref-panel-top {
+            margin-bottom: 28px;
+        }
+
+        .ref-available-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34,197,94,0.08);
+            border: 1px solid rgba(34,197,94,0.2);
+            color: #4ade80;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .ref-avail-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+            animation: badgePulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        .ref-avail-text { letter-spacing: 0.3px; }
+
+        .ref-panel-heading {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+        }
+
+        .ref-panel-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* ── INFO GRID ── */
+        .ref-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 28px 0;
+        }
+
+        .ref-info-card {
+            padding: 16px 18px;
+            background: rgba(30,41,59,0.5);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .ref-info-card:hover {
+            border-color: rgba(14,165,233,0.25);
+            background: rgba(14,165,233,0.05);
+            transform: translateX(4px);
+        }
+
+        .ref-info-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(14,165,233,0.12);
+            border-radius: var(--radius-sm);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .ref-info-card:hover .ref-info-icon {
+            background: var(--gradient-main);
+            color: #fff;
+            transform: rotate(8deg);
+        }
+
+        .ref-info-text small {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .ref-info-text p {
+            font-weight: 600;
+            font-size: 0.82rem;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        /* ── PANEL BUTTONS ── */
+        .ref-panel-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .ref-btn-glow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            background: var(--gradient-main);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+            box-shadow: 0 4px 20px rgba(14,165,233,0.35);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ref-btn-glow::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .ref-btn-glow:hover::after { left: 100%; }
+
+        .ref-btn-glow:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 35px rgba(14,165,233,0.5);
+        }
+
+        .ref-btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            background: transparent;
+            border: 1.5px solid var(--border-glass);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+            backdrop-filter: blur(10px);
+        }
+
+        .ref-btn-ghost:hover {
+            border-color: var(--primary);
+            background: rgba(14,165,233,0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(14,165,233,0.15);
+        }
+
+        /* ── FOOTER BOTTOM ── */
+        .ref-footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-glass), transparent);
+            margin: 60px 0 36px;
+        }
+
+        .ref-footer-bottom {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .ref-footer-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ref-footer-logo-sym {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: var(--gradient-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(14,165,233,0.3);
+        }
+
+        .ref-footer-logo-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            background: var(--gradient-main);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .ref-footer-tagline {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .ref-footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .ref-footer-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .ref-footer-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .ref-footer-nav a:hover { color: var(--text-primary); }
+        .ref-footer-nav a:hover::after { width: 100%; }
+
+        .ref-footer-copy {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .ref-footer-copy span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ══ RESPONSIVE ══ */
+        @media (max-width: 900px) {
+            .ref-contact-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .ref-contact-panel {
+                padding: 32px 24px;
+            }
+
+            .ref-panel-heading {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer {
+                padding: 60px 16px 32px;
+            }
+
+            .ref-contact-header {
+                margin-bottom: 40px;
+            }
+
+            .ref-section-title {
+                font-size: 1.6rem;
+            }
+
+            .ref-info-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .ref-panel-actions {
+                flex-direction: column;
+            }
+
+            .ref-btn-glow,
+            .ref-btn-ghost {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .ref-footer-nav {
+                gap: 14px;
+            }
+
+            .ref-contact-panel {
+                padding: 24px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ref-section-title {
+                font-size: 1.4rem;
+            }
+
+            .ref-panel-heading {
+                font-size: 1.15rem;
+            }
+
+            .ref-c-card {
+                padding: 18px 20px;
+            }
+
+            .ref-contact-socials {
+                gap: 8px;
+            }
+
+            .ref-social-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Footer responsive */
+        @media (max-width: 900px) {
+
+                    /* ═══════════ FOOTER HERO SECTION ═══════════ */
+        .footer-hero-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            padding-bottom: 44px;
+        }
+
+        .footer-available-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34,197,94,0.08);
+            border: 1px solid rgba(34,197,94,0.2);
+            color: #4ade80;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .footer-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+            animation: badgePulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        .footer-hero-heading {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+        }
+
+        .footer-hero-gradient {
+            background: var(--gradient-main);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .footer-hero-sub {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.75;
+            margin-bottom: 28px;
+            max-width: 420px;
+        }
+
+        .footer-contact-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(15,23,42,0.8);
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            padding: 9px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-pill i {
+            color: var(--primary);
+            font-size: 0.82rem;
+        }
+
+        .footer-pill:hover {
+            border-color: rgba(14,165,233,0.35);
+            color: var(--primary-light);
+            background: rgba(14,165,233,0.07);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(14,165,233,0.12);
+        }
+
+        /* Right stat card */
+        .footer-hero-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-card-stat {
+            background: rgba(15,23,42,0.7);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 32px 28px;
+            width: 100%;
+            backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-card-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-main);
+        }
+
+        .footer-stat-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .footer-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .footer-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-main);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .footer-stat-plus {
+            font-size: 1.2rem;
+        }
+
+        .footer-stat-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .footer-stat-divider {
+            width: 1px;
+            height: 40px;
+            background: var(--border-glass);
+            flex-shrink: 0;
+        }
+
+        .footer-card-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        .footer-card-location i {
+            color: var(--primary);
+            font-size: 0.75rem;
+        }
+
+        .footer-card-dot {
+            color: var(--border-glass);
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        /* Bottom mini row */
+        .footer-bottom-row {
+            padding-top: 8px;
+        }
+
+        .footer-brand-mini {
+            padding-right: 40px;
+            border-right: 1px solid var(--border-glass);
+        }
+
+        .footer-brand-tagline {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            margin: 8px 0 16px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ═══════════ FOOTER HERO RESPONSIVE ═══════════ */
+        @media (max-width: 900px) {
+            .footer-hero-row {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding-bottom: 32px;
+            }
+
+            .footer-hero-heading {
+                font-size: 1.7rem;
+            }
+
+            .footer-hero-sub {
+                max-width: 100%;
+            }
+
+            .footer-hero-right {
+                justify-content: flex-start;
+            }
+
+            .footer-card-stat {
+                padding: 24px 20px;
+            }
+
+            .footer-brand-mini {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border-glass);
+                padding-bottom: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-hero-heading {
+                font-size: 1.45rem;
+                letter-spacing: -0.5px;
+            }
+
+            .footer-stat-number {
+                font-size: 1.6rem;
+            }
+
+            .footer-stat-label {
+                font-size: 0.65rem;
+            }
+
+            .footer-contact-pills {
+                gap: 8px;
+            }
+
+            .footer-pill {
+                font-size: 0.75rem;
+                padding: 8px 13px;
+            }
+
+            .footer-card-location {
+                font-size: 0.72rem;
+            }
+
+            .footer-card-stat {
+                padding: 20px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-hero-heading {
+                font-size: 1.25rem;
+            }
+
+            .footer-stat-row {
+                gap: 8px;
+            }
+
+            .footer-stat-number {
+                font-size: 1.4rem;
+            }
+        }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border-glass);
+                padding-bottom: 28px;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .footer-col {
+                padding-left: 0;
+            }
+
+            .footer-col:last-child {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid var(--border-glass);
+                padding-top: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer {
+                padding: 40px 16px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+                border-bottom: 1px solid var(--border-glass);
+                padding-bottom: 24px;
+            }
+
+            .footer-col:last-child {
+                border-left: none;
+                border-top: 1px solid var(--border-glass);
+                padding-top: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 6px;
+            }
+        }
         /* ═══════════ SHORTCUT HINT ═══════════ */
         .shortcut-hint {
             text-align: center;
@@ -2365,6 +3308,144 @@
         }
 
         /* ══════════════════════════════════════════
+           CUSTOM CURSOR SYSTEM
+        ══════════════════════════════════════════ */
+
+        /* Hide default cursor site-wide */
+        *, *::before, *::after {
+            cursor: none !important;
+        }
+
+        .cursor-main {
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 999999;
+            mix-blend-mode: screen;
+            transform: translate(-50%, -50%);
+            transition: width 0.25s cubic-bezier(0.4,0,0.2,1),
+                        height 0.25s cubic-bezier(0.4,0,0.2,1),
+                        background 0.25s ease,
+                        opacity 0.3s ease;
+            will-change: transform;
+            box-shadow: 0 0 10px rgba(14,165,233,0.8),
+                        0 0 20px rgba(14,165,233,0.4);
+        }
+
+        .cursor-main.expand {
+            width: 52px;
+            height: 52px;
+            background: rgba(14,165,233,0.12);
+            border: 1.5px solid rgba(14,165,233,0.7);
+            mix-blend-mode: normal;
+            box-shadow: 0 0 20px rgba(14,165,233,0.25),
+                        inset 0 0 15px rgba(14,165,233,0.08);
+        }
+
+        .cursor-main.clicking {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-light);
+            box-shadow: 0 0 16px rgba(56,189,248,1),
+                        0 0 32px rgba(14,165,233,0.6);
+        }
+
+        .cursor-trail {
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid rgba(14,165,233,0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 999998;
+            transform: translate(-50%, -50%);
+            transition: width 0.35s cubic-bezier(0.4,0,0.2,1),
+                        height 0.35s cubic-bezier(0.4,0,0.2,1),
+                        border-color 0.35s ease,
+                        opacity 0.3s ease;
+            will-change: transform;
+        }
+
+        .cursor-trail.expand {
+            width: 72px;
+            height: 72px;
+            border-color: rgba(14,165,233,0.15);
+        }
+
+        .cursor-trail.clicking {
+            width: 28px;
+            height: 28px;
+            border-color: rgba(56,189,248,0.6);
+        }
+
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 999997;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            box-shadow: 0 0 6px rgba(99,102,241,0.8);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Cursor text label on special hovers */
+        .cursor-label {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999996;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.2s ease;
+            white-space: nowrap;
+            background: rgba(2,8,23,0.85);
+            border: 1px solid rgba(14,165,233,0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .cursor-label.visible {
+            opacity: 1;
+        }
+
+        /* Magnetic pull indicator */
+        .cursor-magnetic {
+            transition: transform 0.4s cubic-bezier(0.23,1,0.32,1) !important;
+        }
+
+        /* Hide cursor on mobile/touch */
+        @media (hover: none) and (pointer: coarse) {
+            .cursor-main,
+            .cursor-trail,
+            .cursor-dot,
+            .cursor-label {
+                display: none !important;
+            }
+
+            *, *::before, *::after {
+                cursor: auto !important;
+            }
+        }
+
+        /* Hide cursor when leaving window */
+        .cursor-hidden {
+            opacity: 0 !important;
+        }
+
+        /* ══════════════════════════════════════════
            PAGE SWITCHING SYSTEM
         ══════════════════════════════════════════ */
 
@@ -2385,6 +3466,17 @@
             display: block;
             opacity: 0;
             transform: translateY(24px);
+        }
+
+        /* Footer hidden by default on all pages */
+        #siteFooter {
+            display: none;
+        }
+
+        /* Footer only visible inside active contact page */
+        #page-contact.page-active #siteFooter,
+        #page-contact.page-visible #siteFooter {
+            display: block;
         }
 
         .page-section.page-visible {
@@ -2625,6 +3717,11 @@
     </div>
 
     <!-- ═══════════ HERO SECTION ═══════════ -->
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-main" id="cursorMain"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
     <!-- PAGE TRANSITION OVERLAY -->
     <div class="page-transition-overlay" id="pageOverlay"></div>
 
@@ -2642,7 +3739,7 @@
                     </div>
                     <h1 class="hero-title">
                         Hi, I'm
-                        <span class="gradient-text">Alaguvel A.</span>
+                        <span class="gradient-text">Alaguvel A</span>
                     </h1>
                     <div class="hero-subtitle">
                         <i class="fab fa-python" style="color: var(--primary);"></i>
@@ -3033,61 +4130,155 @@
         </main>
     </div>
     <!-- ═══════════ FOOTER ═══════════ -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <div class="footer-logo-icon">
-                            <img src="https://img.icons8.com/color/48/python--v1.png" width="22" height="22" alt="Python" style="object-fit:contain;">
-                        </div>
-                        <span class="footer-logo-text">alagu</span>
-                    </div>
-                    <p>Passionate Python Full Stack Developer Intern building impactful solutions. Currently learning Django and exploring the world of full-stack development.</p>
-                    <div class="footer-social">
-                        <a href="https://github.com/Alaguvel2410" target="_blank" rel="noopener noreferrer" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/alaguvel2410/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@alaguvel2410" target="_blank" rel="noopener noreferrer" title="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="mailto:alaguvel431@gmail.com" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Home</a></li>
-                        <li><a href="#achievements"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Achievements</a></li>
-                        <li><a href="#skills"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Skills</a></li>
-                        <li><a href="#projects"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Projects</a></li>
-                        <li><a href="#experience"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Experience</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Tech Stack</h4>
-                    <ul>
-                        <li><a href="#skills"><i class="fab fa-python" style="font-size:0.78rem;color:var(--primary);"></i> Python</a></li>
-                        <li><a href="#skills"><i class="fas fa-database" style="font-size:0.78rem;color:var(--primary);"></i> MySQL</a></li>
-                        <li><a href="#skills"><i class="fab fa-html5" style="font-size:0.78rem;color:var(--primary);"></i> HTML / CSS</a></li>
-                        <li><a href="#skills"><i class="fab fa-js-square" style="font-size:0.78rem;color:var(--primary);"></i> JavaScript</a></li>
-                        <li><a href="#skills"><i class="fas fa-leaf" style="font-size:0.78rem;color:var(--primary);"></i> Django (Learning)</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-divider"></div>
-            <div class="footer-bottom">
-                <p>© 2025 <span>Alaguvel A.</span> — All rights reserved.</p>
-                <p>Built with <span>♥</span> using HTML, CSS & Vanilla JS</p>
-            </div>
-        </div>
-    </footer>
+           <!-- FOOTER — only visible on Contact page -->
+        <footer class="footer" id="siteFooter">
+            <div class="ref-contact-wrap">
 
+                <!-- SECTION HEADER -->
+                <div class="ref-contact-header">
+                    <div class="ref-section-label">
+                        <i class="fas fa-paper-plane"></i> Contact
+                    </div>
+                    <h2 class="ref-section-title">
+                        Let's <span class="ref-highlight">Connect</span>
+                    </h2>
+                    <p class="ref-section-subtitle">
+                        Feel free to reach out for collaborations, internships, or opportunities
+                    </p>
+                </div>
+
+                <!-- CONTACT LAYOUT -->
+                <div class="ref-contact-layout">
+
+                    <!-- LEFT: Contact Cards -->
+                    <div class="ref-contact-cards">
+
+                        <div class="ref-c-card">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email</h4>
+                            <p><a href="mailto:alaguvel431@gmail.com">alaguvel431@gmail.com</a></p>
+                        </div>
+
+                        <div class="ref-c-card">
+                            <i class="fas fa-phone"></i>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+916383390714">+91 63833 90714</a></p>
+                        </div>
+
+                        <div class="ref-c-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>Location</h4>
+                            <p>Udangudi, Tamil Nadu, India</p>
+                        </div>
+
+                        <div class="ref-c-card">
+                            <i class="fas fa-briefcase"></i>
+                            <h4>Currently intern at</h4>
+                            <p>BDreamz Technologies, Anna Nagar, Chennai</p>
+                        </div>
+
+                        <div class="ref-contact-socials">
+                            <a href="https://github.com/Alaguvel2410" target="_blank" rel="noopener noreferrer" class="ref-social-btn" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/alaguvel2410/" target="_blank" rel="noopener noreferrer" class="ref-social-btn ref-li" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@alaguvel2410" target="_blank" rel="noopener noreferrer" class="ref-social-btn ref-yt" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="mailto:alaguvel431@gmail.com" class="ref-social-btn ref-mail" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT: Info Panel -->
+                    <div class="ref-contact-panel">
+
+                        <div class="ref-panel-top">
+                            <div class="ref-available-row">
+                                <span class="ref-avail-dot"></span>
+                                <span class="ref-avail-text">Open to Opportunities</span>
+                            </div>
+                            <h3 class="ref-panel-heading">
+                                Python Full Stack <span class="ref-highlight">Developer Intern</span>
+                            </h3>
+                            <p class="ref-panel-desc">
+                                B.E. ECE Graduate passionate about building scalable, impactful applications.
+                                Currently deepening expertise in Django, MySQL and full-stack web development.
+                                Looking for exciting roles where I can contribute and grow.
+                            </p>
+                        </div>
+
+                        <div class="ref-info-grid">
+                            <div class="ref-info-card">
+                                <div class="ref-info-icon"><i class="fas fa-user"></i></div>
+                                <div class="ref-info-text">
+                                    <small>Name</small>
+                                    <p>Alaguvel A.</p>
+                                </div>
+                            </div>
+                            <div class="ref-info-card">
+                                <div class="ref-info-icon"><i class="fab fa-python"></i></div>
+                                <div class="ref-info-text">
+                                    <small>Primary Stack</small>
+                                    <p>Python · Django · MySQL</p>
+                                </div>
+                            </div>
+                            <div class="ref-info-card">
+                                <div class="ref-info-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="ref-info-text">
+                                    <small>Education</small>
+                                    <p>B.E. ECE — 7.93 CGPA</p>
+                                </div>
+                            </div>
+                            <div class="ref-info-card">
+                                <div class="ref-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="ref-info-text">
+                                    <small>Location</small>
+                                    <p>Tamil Nadu, India</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ref-panel-actions">
+                            <a href="mailto:alaguvel431@gmail.com" class="ref-btn-glow">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </a>
+                            <a href="https://www.linkedin.com/in/alaguvel2410/" target="_blank" rel="noopener noreferrer" class="ref-btn-ghost">
+                                <i class="fab fa-linkedin-in"></i> LinkedIn
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- FOOTER BOTTOM -->
+                <div class="ref-footer-divider"></div>
+                <div class="ref-footer-bottom">
+                    <div class="ref-footer-brand">
+                        <div class="ref-footer-logo-sym">
+                            <img src="https://img.icons8.com/color/48/python--v1.png" width="18" height="18" alt="Python" style="object-fit:contain;">
+                        </div>
+                        <span class="ref-footer-logo-name">alagu.in</span>
+                    </div>
+                    <div class="ref-footer-nav">
+                        <a href="#home" data-page="home">Home</a>
+                        <a href="#achievements" data-page="achievements">Achievements</a>
+                        <a href="#skills" data-page="skills">Skills</a>
+                        <a href="#projects" data-page="projects">Projects</a>
+                        <a href="#experience" data-page="experience">Experience</a>
+                    </div>
+                    <p class="ref-footer-copy">
+                        © 2025 <span>Alaguvel A.</span> All Rights Reserved.
+                    </p>
+                </div>
+
+            </div>
+        </footer>
+    </div>
     <!-- FIXED SOCIAL ICONS -->
     <div class="fixed-social-icons">
         <a href="https://github.com/Alaguvel2410" target="_blank" rel="noopener noreferrer" class="fixed-social-btn github-btn" title="GitHub Profile">
@@ -3115,8 +4306,215 @@
     <!-- ═══════════ JAVASCRIPT ═══════════ -->
     <script>
             /* ── NAVBAR SCROLL EFFECT ── */
-             /* ── NAVBAR SCROLL EFFECT ── */
-        const navbar = document.getElementById('navbar');
+            /* ══════════════════════════════════════════
+           CUSTOM CURSOR SYSTEM
+        ══════════════════════════════════════════ */
+        (function initCursor() {
+
+            /* skip on touch devices */
+            if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
+            const cursorMain  = document.getElementById('cursorMain');
+            const cursorTrail = document.getElementById('cursorTrail');
+            const cursorDot   = document.getElementById('cursorDot');
+
+            if (!cursorMain || !cursorTrail || !cursorDot) return;
+
+            /* create label element */
+            const cursorLabel = document.createElement('div');
+            cursorLabel.className = 'cursor-label';
+            cursorLabel.id = 'cursorLabel';
+            document.body.appendChild(cursorLabel);
+
+            /* ── position state ── */
+            let mouseX = window.innerWidth  / 2;
+            let mouseY = window.innerHeight / 2;
+
+            /* trail uses lerp — separate slower position */
+            let trailX  = mouseX, trailY  = mouseY;
+            let dotX    = mouseX, dotY    = mouseY;
+            let labelX  = mouseX, labelY  = mouseY;
+
+            /* lerp speeds */
+            const TRAIL_SPEED = 0.10;
+            const DOT_SPEED   = 0.06;
+            const LABEL_SPEED = 0.08;
+
+            let isExpanded  = false;
+            let isVisible   = false;
+            let labelText   = '';
+            let rafId       = null;
+
+            /* ── lerp helper ── */
+            function lerp(a, b, t) { return a + (b - a) * t; }
+
+            /* ── main animation loop ── */
+            function animateCursor() {
+
+                /* trail smoothly follows mouse */
+                trailX = lerp(trailX, mouseX, TRAIL_SPEED);
+                trailY = lerp(trailY, mouseY, TRAIL_SPEED);
+
+                /* dot follows even slower */
+                dotX = lerp(dotX, mouseX, DOT_SPEED);
+                dotY = lerp(dotY, mouseY, DOT_SPEED);
+
+                /* label follows */
+                labelX = lerp(labelX, mouseX + 30, LABEL_SPEED);
+                labelY = lerp(labelY, mouseY - 14, LABEL_SPEED);
+
+                /* apply positions */
+                cursorMain.style.left  = mouseX + 'px';
+                cursorMain.style.top   = mouseY + 'px';
+
+                cursorTrail.style.left = trailX + 'px';
+                cursorTrail.style.top  = trailY + 'px';
+
+                cursorDot.style.left   = dotX + 'px';
+                cursorDot.style.top    = dotY + 'px';
+
+                cursorLabel.style.left = labelX + 'px';
+                cursorLabel.style.top  = labelY + 'px';
+
+                rafId = requestAnimationFrame(animateCursor);
+            }
+
+            /* ── track mouse ── */
+            document.addEventListener('mousemove', e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                if (!isVisible) {
+                    isVisible = true;
+                    cursorMain.classList.remove('cursor-hidden');
+                    cursorTrail.classList.remove('cursor-hidden');
+                    cursorDot.classList.remove('cursor-hidden');
+                }
+            });
+
+            /* ── hide when mouse leaves window ── */
+            document.addEventListener('mouseleave', () => {
+                cursorMain.classList.add('cursor-hidden');
+                cursorTrail.classList.add('cursor-hidden');
+                cursorDot.classList.add('cursor-hidden');
+                cursorLabel.classList.remove('visible');
+                isVisible = false;
+            });
+
+            document.addEventListener('mouseenter', () => {
+                cursorMain.classList.remove('cursor-hidden');
+                cursorTrail.classList.remove('cursor-hidden');
+                cursorDot.classList.remove('cursor-hidden');
+                isVisible = true;
+            });
+
+            /* ── click effect ── */
+            document.addEventListener('mousedown', () => {
+                cursorMain.classList.add('clicking');
+                cursorTrail.classList.add('clicking');
+            });
+
+            document.addEventListener('mouseup', () => {
+                cursorMain.classList.remove('clicking');
+                cursorTrail.classList.remove('clicking');
+            });
+
+            /* ── hover expand on interactive elements ── */
+            const expandSelectors = [
+                'a', 'button', '.nav-link-item', '.fixed-social-btn',
+                '.achievement-card', '.project-card', '.skill-card',
+                '.tool-card', '.hobby-card', '.hobby-card',
+                '.btn-primary', '.btn-secondary', '.back-to-home',
+                '.apply-btn', '.duration-card', '.nav-cta',
+                '.hero-contact-item', '.goals-tag', '.tech-tag',
+                'input', 'textarea', 'select',
+                '.exp-edu-card', '.footer-social a',
+                '#cmdModal input', '.cmd-input-line'
+            ].join(', ');
+
+            /* label map for specific elements */
+            const labelMap = [
+                { selector: '.btn-primary',        label: 'Click' },
+                { selector: '.btn-secondary',      label: 'View'  },
+                { selector: '.project-card',       label: 'Project' },
+                { selector: '.achievement-card',   label: 'Stats' },
+                { selector: '.fixed-social-btn.github-btn',   label: 'GitHub'   },
+                { selector: '.fixed-social-btn.linkedin-btn', label: 'LinkedIn' },
+                { selector: '.fixed-social-btn.youtube-btn',  label: 'YouTube'  },
+                { selector: '.nav-cta',            label: 'Contact' },
+                { selector: '.back-to-home',       label: 'Back'  },
+                { selector: '.tool-card',          label: 'Tool'  },
+                { selector: '.skill-card',         label: 'Skill' },
+                { selector: '.hobby-card',         label: '♟'    },
+            ];
+
+            function getLabel(el) {
+                for (const map of labelMap) {
+                    if (el.closest(map.selector)) return map.label;
+                }
+                return '';
+            }
+
+            document.addEventListener('mouseover', e => {
+                const target = e.target;
+                if (!target || !target.closest) return;
+
+                const matched = target.closest(expandSelectors);
+                if (matched) {
+                    cursorMain.classList.add('expand');
+                    cursorTrail.classList.add('expand');
+
+                    const lbl = getLabel(target);
+                    if (lbl) {
+                        cursorLabel.textContent = lbl;
+                        cursorLabel.classList.add('visible');
+                    }
+                }
+            });
+
+            document.addEventListener('mouseout', e => {
+                const target = e.target;
+                if (!target || !target.closest) return;
+
+                const matched = target.closest(expandSelectors);
+                if (matched) {
+                    cursorMain.classList.remove('expand');
+                    cursorTrail.classList.remove('expand');
+                    cursorLabel.classList.remove('visible');
+                }
+            });
+
+            /* ── magnetic pull on buttons ── */
+            const magneticEls = document.querySelectorAll(
+                '.btn-primary, .btn-secondary, .fixed-social-btn, .nav-cta'
+            );
+
+            magneticEls.forEach(el => {
+                el.addEventListener('mousemove', function(e) {
+                    const rect   = this.getBoundingClientRect();
+                    const cx     = rect.left + rect.width  / 2;
+                    const cy     = rect.top  + rect.height / 2;
+                    const dx     = e.clientX - cx;
+                    const dy     = e.clientY - cy;
+                    const pull   = 0.3;
+                    this.style.transform = `translate(${dx * pull}px, ${dy * pull}px)`;
+                });
+
+                el.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translate(0px, 0px)';
+                });
+            });
+
+            /* ── start RAF loop ── */
+            animateCursor();
+
+            /* ── clean up on page unload ── */
+            window.addEventListener('beforeunload', () => {
+                if (rafId) cancelAnimationFrame(rafId);
+            });
+
+        })();
+        /* ══ END CURSOR SYSTEM ══ */ 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 40) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
@@ -3135,6 +4533,7 @@
             hamburger.classList.remove('open');
             mobileMenu.classList.remove('open');
         }
+
         /* ══════════════════════════════════════════
            PAGE SWITCHING SYSTEM
         ══════════════════════════════════════════ */
@@ -3226,7 +4625,29 @@
                 visitorInitialized = true;
                 setTimeout(initVisitorCounter, 400);
             }
+
+            /* show footer ONLY on contact page, hide on all others */
+            const footerEl = document.getElementById('siteFooter');
+            if (footerEl) {
+                if (pageId === 'contact') {
+                    setTimeout(() => {
+                        footerEl.style.display = 'block';
+                        footerEl.style.opacity = '0';
+                        footerEl.style.transform = 'translateY(20px)';
+                        footerEl.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        requestAnimationFrame(() => {
+                            footerEl.style.opacity = '1';
+                            footerEl.style.transform = 'translateY(0)';
+                        });
+                    }, 350);
+                } else {
+                    footerEl.style.transition = 'none';
+                    footerEl.style.opacity = '0';
+                    footerEl.style.display = 'none';
+                }
+            }
         }
+
         /* ── UPDATE ACTIVE NAV LINK ── */
         function updateActiveNav(pageId) {
             document.querySelectorAll('.nav-link-item').forEach(a => {
@@ -3275,16 +4696,20 @@
             });
         });
 
+              /* ── INIT: show home page only ── */
         window.addEventListener('DOMContentLoaded', () => {
             pages.forEach(id => {
                 const el = document.getElementById('page-' + id);
                 if (el) el.style.display = 'none';
             });
 
+            /* always hide footer on init */
+            const footerEl = document.getElementById('siteFooter');
+            if (footerEl) footerEl.style.display = 'none';
+
             /* check URL hash on load */
             const hash = window.location.hash.replace('#','');
             const startPage = pages.includes(hash) ? hash : 'home';
-
             const startEl = document.getElementById('page-' + startPage);
             if (startEl) {
                 startEl.style.display = 'block';
@@ -3294,6 +4719,18 @@
             currentPage = startPage;
             history.replaceState({ page: startPage }, '', '#' + startPage);
             updateActiveNav(startPage);
+
+            /* control footer on initial load */
+            const footerInit = document.getElementById('siteFooter');
+            if (footerInit) {
+                if (startPage === 'contact') {
+                    footerInit.style.display = 'block';
+                    footerInit.style.opacity = '1';
+                    footerInit.style.transform = 'translateY(0)';
+                } else {
+                    footerInit.style.display = 'none';
+                }
+            }
 
             setTimeout(() => {
                 const homeLink = document.querySelector('.nav-link-item[data-page="home"]');
@@ -3312,6 +4749,7 @@
         /* ══════════════════════════════════════════
            MODERN NAVIGATION SYSTEM
         ══════════════════════════════════════════ */
+
         const navLinkItems   = document.querySelectorAll('.nav-link-item:not(.nav-cta)');
         const navIndicator   = document.getElementById('navIndicator');
         const navLinksEl     = document.getElementById('navLinks');
@@ -3351,6 +4789,7 @@
                 const sectionEl = document.querySelector(href);
                 if (!sectionEl) return;
 
+                /* close mobile menu */
                 closeMobileMenu();
 
                 /* smooth scroll */
@@ -3361,7 +4800,7 @@
 
                 /* brief section highlight pulse */
                 sectionEl.classList.remove('section-entering');
-                void sectionEl.offsetWidth;              
+                void sectionEl.offsetWidth;              /* force reflow */
                 sectionEl.classList.add('section-entering');
                 setTimeout(() => sectionEl.classList.remove('section-entering'), 700);
 
@@ -3412,7 +4851,8 @@
         window.addEventListener("scroll", function () {
             scrollTicking || (requestAnimationFrame(updateOnScroll), scrollTicking = true);
         });
-        
+
+        /* ── GITHUB IMAGE ERROR HANDLING ── */
         var failedImages = 0;
         function handleImageError(e) {
             failedImages++;
@@ -3541,6 +4981,17 @@
             })();
         }
 
+          /* ── FOOTER NAV LINKS — page switching ── */
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('[data-page]');
+            if (!link) return;
+            const page = link.getAttribute('data-page');
+            if (!page) return;
+            if (link.closest('.nav-links') || link.closest('.mobile-menu')) return;
+            e.preventDefault();
+            if (typeof navigateTo === 'function') navigateTo(page);
+        });
+
         /* ── TRAFFIC SOURCE DETECTION ── */
         function detectTrafficSource() {
             const ref = document.referrer,
@@ -3580,31 +5031,6 @@
             detectTrafficSource();
         }
 
-        /* ── BOTTOM SCROLL POPUP ── */
-        var bottomShown = false;
-
-        function showBottomMessage() {
-            var existing = document.getElementById("bottom-msg");
-            if (existing) existing.remove();
-            var popup = document.createElement("div");
-            popup.id = "bottom-msg";
-            popup.style.cssText = "\n        position: fixed;\n        bottom: 25px;\n        left: 50%;\n        transform: translateX(-50%);\n        background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);\n        color: white;\n        font-family: 'Inter', 'Poppins', sans-serif;\n        padding: 28px 36px;\n        border-radius: 20px;\n        z-index: 99999;\n        text-align: center;\n        box-shadow: 0 20px 60px rgba(14, 165, 233, 0.4);\n        font-size: 0.9rem;\n        line-height: 1.8;\n        animation: slideInUp 0.5s ease;\n        max-width: 90vw;\n        min-width: 300px;\n        border: 1px solid rgba(255,255,255,0.2);\n        backdrop-filter: blur(20px);\n    ";
-            popup.innerHTML = '\n        <span onclick="document.getElementById(\'bottom-msg\').remove()" style="position:absolute; top:12px; right:15px; cursor:pointer; font-size:1.1rem; transition:transform 0.2s ease; opacity:0.8;" onmouseover="this.style.transform=\'scale(1.2)\';this.style.opacity=\'1\';" onmouseout="this.style.transform=\'scale(1)\';this.style.opacity=\'0.8\';" title="Close">✕</span>\n\n        <div style="font-size:2rem;margin-bottom:10px;">🎉</div>\n\n        <div style="font-size:1rem;font-weight:700;letter-spacing:0.5px;margin-bottom:8px;text-shadow:0 2px 8px rgba(0,0,0,0.2);">\n            You made it to the end!\n        </div>\n\n        <div style="font-size:0.88rem;opacity:0.92;margin-bottom:20px;">\n            Thanks for exploring my portfolio! 🙏<br>\n            Let\'s stay connected and build something awesome together 🚀\n        </div>\n\n        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">\n            <a href="https://www.linkedin.com/in/alaguvel2410/"\n               target="_blank"\n               style="color:white;border:1px solid rgba(255,255,255,0.3);padding:9px 20px;text-decoration:none;font-size:0.82rem;font-weight:600;border-radius:50px;background:rgba(255,255,255,0.1);transition:all 0.3s ease;"\n               onmouseover="this.style.background=\'rgba(255,255,255,0.2)\';this.style.transform=\'scale(1.05)\'"\n               onmouseout="this.style.background=\'rgba(255,255,255,0.1)\';this.style.transform=\'scale(1)\'">\n                💼 LinkedIn\n            </a>\n            <a href="https://github.com/Alaguvel2410"\n               target="_blank"\n               style="color:white;border:1px solid rgba(255,255,255,0.3);padding:9px 20px;text-decoration:none;font-size:0.82rem;font-weight:600;border-radius:50px;background:rgba(255,255,255,0.1);transition:all 0.3s ease;"\n               onmouseover="this.style.background=\'rgba(255,255,255,0.2)\';this.style.transform=\'scale(1.05)\'"\n               onmouseout="this.style.background=\'rgba(255,255,255,0.1)\';this.style.transform=\'scale(1)\'">\n                🐙 GitHub\n            </a>\n        </div>\n    ';
-            document.body.appendChild(popup);
-            setTimeout(function () {
-                if (popup.parentElement) { popup.remove(); bottomShown = false; }
-            }, 10000);
-        }
-
-        window.addEventListener("scroll", function () {
-            var scrolled = window.scrollY,
-                total = document.documentElement.scrollHeight - window.innerHeight,
-                percent = total > 0 ? scrolled / total * 100 : 0;
-            if (percent >= 95 && !bottomShown) {
-                bottomShown = true;
-                showBottomMessage();
-            }
-        });
         /* ══════════════════════════════════════════════
            SOUND SYSTEM — WEB AUDIO API ENGINE
         ══════════════════════════════════════════════ */
@@ -3672,7 +5098,8 @@
                 try { window.navigator.vibrate && window.navigator.vibrate(140); } catch (e) {}
             }, 295);
         }
-        
+
+        /* ── CMD TERMINAL FUNCTIONS ── */
         function writeLine(text, className = "") {
             const span = document.createElement("span");
             span.className = className;
@@ -3790,11 +5217,11 @@
             await typeAndScroll("Access granted...", "cmd-success", 400);
             await typeAndScroll("Initializing private session...", "cmd-info", 300);
             await animateFullProgress("Loading dashboard modules: ", 2800, "cmd-info");
-            await typeAndScroll("✔ System processes completed successfully.", "cmd-success", 100);
+            await typeAndScroll("System processes completed successfully.", "cmd-success", 100);
             await typeAndScroll("Session ready.", "cmd-success", 100);
             const linkSpan = document.createElement("span");
             linkSpan.className = "cmd-success";
-            linkSpan.innerHTML = `<br> ✔ Success! <a href="${LOOKER_URL}" target="_blank" rel="noopener noreferrer" style="color:#0f0;text-decoration:underline;font-weight:bold;cursor:pointer;" onclick="setTimeout(hideCmd,800)">Click to open dashboard ↗</a>`;
+            linkSpan.innerHTML = `<br> ✔ Success...!<a href="${LOOKER_URL}" target="_blank" rel="noopener noreferrer" style="color:#0f0;text-decoration:underline;font-weight:bold;cursor:pointer;" onclick="setTimeout(hideCmd,800)">Click↗</a>`;
             cmdScreen.appendChild(linkSpan);
             cmdScreen.scrollTop = cmdScreen.scrollHeight;
         }
@@ -3845,6 +5272,8 @@
                 }, 50);
             });
         }
+
+        /* ── KEYBOARD SHORTCUTS ── */
         document.addEventListener("keydown", e => {
             if (e.ctrlKey && e.shiftKey && e.code === "KeyA") {
                 e.preventDefault();
