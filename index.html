@@ -6879,7 +6879,7 @@
         }
 
         /* Force centering by wrapping in flex */
-        .visitor-section > .visitor-text {
+        .visitor-section>.visitor-text {
             width: fit-content;
             margin: 20px auto 0 !important;
         }
@@ -6993,6 +6993,13 @@
             .achievement-card .achievement-icon i {
                 font-size: 1.05rem;
             }
+        }
+
+        /* ══════════════════════════════════════════
+        PROJECT GITHUB LINKS (without icons)
+        ══════════════════════════════════════════ */
+        .project-card {
+            cursor: pointer;
         }
     </style>
     <script>document.addEventListener("DOMContentLoaded", () => { let e = 0; const t = document.getElementById("preloaderCounter"), n = document.getElementById("preloader"), d = setInterval(() => { e++, t.textContent = e + "%", e >= 100 && (clearInterval(d), n.classList.add("done"), setTimeout(() => { n.style.display = "none" }, 1500)) }, 20) })</script>
@@ -7317,33 +7324,47 @@
                 <div class="section-label"><i class="fas fa-project-diagram"></i> Portfolio</div>
                 <h2><i class="fas fa-project-diagram"></i> Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card stagger-item delay-1"><span class="project-type">Desktop Application</span>
+                    <!-- Project 1 -->
+                    <div class="project-card stagger-item delay-1"
+                        onclick="window.open('https://github.com/Alaguvel2410/-Mental-Health-Addiction-Recovery-Management-System-with-Python-Integrated-Relational-Database', '_blank', 'noopener,noreferrer')">
+                        <span class="project-type">Desktop Application</span>
                         <h3>Mental Health &amp; Recovery Management System with Python-Integrated Relational Database
                         </h3>
-                        <div class="project-tech"><span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-                            <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span> <span
-                                class="tech-tag"><i class="fas fa-desktop"></i> Tkinter</span>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                            <span class="tech-tag"><i class="fas fa-desktop"></i> Tkinter</span>
                         </div>
                         <p>A comprehensive desktop application built with Python GUI (Tkinter) and MySQL database
                             integration for managing mental health records, patient information, and recovery progress
                             tracking with full CRUD operations.</p>
                     </div>
-                    <div class="project-card stagger-item delay-2"><span class="project-type">Database Project</span>
+
+                    <!-- Project 2 -->
+                    <div class="project-card stagger-item delay-2"
+                        onclick="window.open('https://github.com/Alaguvel2410/Addiction-Recovery-and-Behavioral-Counseling-Management-System', '_blank', 'noopener,noreferrer')">
+                        <span class="project-type">Database Project</span>
                         <h3>Addiction Recovery and Behavioural Counselling Management System</h3>
-                        <div class="project-tech"><span class="tech-tag"><i class="fas fa-database"></i> Pure
-                                MySQL</span> <span class="tech-tag"><i class="fas fa-table"></i> SQL Queries</span>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fas fa-database"></i> Pure MySQL</span>
+                            <span class="tech-tag"><i class="fas fa-table"></i> SQL Queries</span>
                             <span class="tech-tag"><i class="fas fa-chart-bar"></i> Data Analysis</span>
                         </div>
                         <p>A robust database management system designed entirely using MySQL to handle addiction
                             recovery programs, behavioural counselling sessions, patient progress tracking, and
                             comprehensive reporting with complex SQL queries.</p>
                     </div>
-                    <div class="project-card stagger-item delay-3"><span class="project-type">Final Year Project</span>
+
+                    <!-- Project 3 -->
+                    <div class="project-card stagger-item delay-3"
+                        onclick="window.open('https://github.com/Alaguvel2410/AI-BASED-SMART-IRRIGATION-SYSTEM-USING-WEATHER-PREDICTION', '_blank', 'noopener,noreferrer')">
+                        <span class="project-type">Final Year Project</span>
                         <h3>AI-Based Smart Irrigation System Using Weather Prediction</h3>
-                        <div class="project-tech"><span class="tech-tag"><i class="fas fa-microchip"></i> ESP32</span>
-                            <span class="tech-tag"><i class="fas fa-wifi"></i> IoT</span> <span class="tech-tag"><i
-                                    class="fas fa-cloud-sun-rain"></i> OpenWeatherMap API</span> <span
-                                class="tech-tag"><i class="fas fa-code"></i> Arduino IDE</span>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fas fa-microchip"></i> ESP32</span>
+                            <span class="tech-tag"><i class="fas fa-wifi"></i> IoT</span>
+                            <span class="tech-tag"><i class="fas fa-cloud-sun-rain"></i> OpenWeatherMap API</span>
+                            <span class="tech-tag"><i class="fas fa-code"></i> Arduino IDE</span>
                         </div>
                         <p>An intelligent smart irrigation system built using ESP32, Soil Moisture Sensor, DHT11, Relay
                             Module, and OpenWeatherMap API to automate water usage based on real-time soil conditions
